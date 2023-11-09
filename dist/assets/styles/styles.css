@@ -37,25 +37,25 @@ body {
   width: 100%;
 }
 
-.menuButtonsItem {
+.categories {
   display: flex;
   justify-content: space-around;
   width: 70%;
 }
 
-.menuItems {
+.category-item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.menuItems p {
+.category-item p {
   font-size: 22px;
   color: #fff;
   font-family: 'Nunito', sans-serif;
 }
 
-.menuItems img {
+.category-item img {
   cursor: pointer;
   border-radius: 50%;
 }
@@ -63,13 +63,14 @@ body {
 /* FILLINGS */
 .fillings {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   display: none;
   justify-content: center;
+  z-index: 2;
 }
 
-.fillingsBackground {
+.fillings_bg {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -77,7 +78,7 @@ body {
   z-index: 1;
 }
 
-.fillingsContainer {
+.fillings_container {
   width: 550px;
   height: 315px;
   position: fixed;
@@ -92,7 +93,7 @@ body {
   opacity: 1;
 }
 
-.closeBtn {
+.fillings__close-button {
   position: fixed;
   top: -14%;
   right: -8%;
@@ -103,11 +104,11 @@ body {
   cursor: pointer;
 }
 
-.closeBtn img {
+.fillings__close-button img {
   width: 40px;
 }
 
-.fillingsItem {
+.fillings-item {
   width: 110px;
   height: 110px;
   border-radius: 50%;
@@ -129,7 +130,7 @@ body {
   box-shadow: 0 2px 10px #fff;
 }
 
-.fillingsAndCost h4 {
+.fillings-item_container h4 {
   font-size: 15px;
   color: #fff;
   font-family: 'Nunito', sans-serif;
@@ -142,13 +143,13 @@ body {
   background-color: rgba(255, 255, 255, 0.13);
 }
 
-.fillingsItems {
+.fillings-items {
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
 
-.fillingsAndCost {
+.fillings-item_container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,14 +157,14 @@ body {
   cursor: pointer;
 }
 
-.foodElement h2 {
+.dish-item h2 {
   font-size: 30px;
   color: #fff;
   font-family: 'Dancing Script', cursive;
   margin-bottom: 0;
 }
 
-.fillingsItems p {
+.fillings-items p {
   font-size: 20px;
   font-family: 'Nunito', sans-serif;
   color: #fff;
@@ -171,7 +172,7 @@ body {
   text-shadow: 0 2px 10px rgb(0, 0, 0);
 }
 
-.foodElement h3 {
+.dish-item h3 {
   font-size: 20px;
   font-family: 'Nunito', sans-serif;
   color: #fff;
@@ -185,7 +186,7 @@ body {
   text-shadow: 0 2px 10px rgb(0, 0, 0);
 }
 
-.foodElement p {
+.dish-item p {
   font-size: 15px;
   color: #fff;
   font-family: 'Nunito', sans-serif;
@@ -193,7 +194,7 @@ body {
   text-shadow: 0 2px 10px rgb(0, 0, 0);
 }
 
-.foodElement {
+.dish-item {
   width: 300px;
   height: 150px;
   overflow: hidden;
@@ -205,19 +206,19 @@ body {
   position: relative;
 }
 
-.price {
+.dish-item__price {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.foodImageBlock {
+.dish-item__image-container {
   position: absolute;
   z-index: -1;
   top: 0;
 }
 
-.foodImage {
+.dish-item__image {
   width: 300px;
   height: 300px;
   border-radius: 50%;
@@ -232,36 +233,36 @@ body {
   background-image: url('../assets/jpg/croissant.jpg');
 }
 
-.aboutFood {
+.dish-item__about {
   display: flex;
   align-items: center;
 }
 
-.foodContainer {
+.dish-container {
   display: flex;
   flex-wrap: wrap;
   width: 65%;
   justify-content: space-between;
 }
 
-.menuContent {
+.menu-content {
   display: flex;
   justify-content: center;
 }
 
-.foodImageTwo {
+.dish-item__imageTwo {
   background-image: url('../assets/jpg/benedicts.jpg');
 }
 
-.foodImageOne {
+.dish-item__imageOne {
   background-image: url('../assets/jpg/croissant.jpg');
 }
 
-.foodImageThree {
+.dish-item__imageThree {
   background-image: url('../assets/jpg/porridge.jpg');
 }
 
-.foodImageFour {
+.dish-item__imageFour {
   background-image: url('../assets/jpg/pancakes.jpg');
 }
 
@@ -273,7 +274,7 @@ body {
   box-shadow: 0 2px 10px #fff;
 }
 
-.menuItems {
+.category-item {
   filter: brightness(50%);
   transition: box-shadow, filter 0.4s ease;
 }
@@ -443,7 +444,7 @@ body {
   margin: 0;
 }
 
-.addFoodOnBasket,
+.fillings__add-buttonOnBasket,
 .removeFood {
   width: 11px;
   cursor: pointer;
@@ -593,7 +594,7 @@ body {
   font-family: 'Dancing Script', cursive !important;
 }
 
-@media all and (max-width: 1415px) {
+/* @media all and (max-width: 1415px) {
   .newsItem img {
     width: 400px;
   }
@@ -624,7 +625,7 @@ body {
 }
 
 @media all and (max-width: 1170px) {
-  .foodContainer {
+  .dish-container {
     width: 90%;
   }
 
@@ -669,7 +670,7 @@ body {
     z-index: 1;
   }
 
-  .foodElement {
+  .dish-item {
     margin: 10px;
   }
 
@@ -681,7 +682,7 @@ body {
     width: 240px;
   }
 
-  .fillingsContainer,
+  .fillings_container,
   .orderModal,
   .successfullyModal {
     top: 13%;
@@ -689,7 +690,7 @@ body {
 }
 
 @media all and (max-width: 740px) {
-  .foodElement {
+  .dish-item {
     width: 250px;
     height: 100px;
     display: flex;
@@ -697,16 +698,16 @@ body {
     justify-content: center;
   }
 
-  .foodElement h2 {
+  .dish-item h2 {
     font-size: 20px;
     margin-top: 5px;
   }
 
-  .foodElement p {
+  .dish-item p {
     font-size: 12px;
   }
 
-  .foodElement h3 {
+  .dish-item h3 {
     font-size: 15px;
   }
 
@@ -714,7 +715,7 @@ body {
     font-size: 15px;
   }
 
-  .foodImage {
+  .dish-item__image {
     bottom: -100px;
     width: 150px;
     height: 150px;
@@ -743,15 +744,15 @@ body {
     align-items: center;
   }
 
-  .menuItems img {
+  .category-item img {
     width: 70px;
   }
 
-  .menuItems p {
+  .category-item p {
     font-size: 15px;
   }
 
-  .menuButtonsItem {
+  .categories {
     margin-bottom: 20px;
   }
 
@@ -850,7 +851,7 @@ body {
     align-items: center;
   }
 
-  .menuButtonsItem {
+  .categories {
     flex-direction: column;
   }
 
@@ -858,31 +859,31 @@ body {
     left: 0;
   }
 
-  .fillingsContainer,
+  .fillings_container,
   .orderModal,
   .successfullyModal {
     width: 450px;
   }
 
-  .fillingsContainer {
+  .fillings_container {
     height: 285px;
   }
 
-  .closeBtn img,
-  .closeBtn,
+  .fillings__close-button img,
+  .fillings__close-button,
   .closeOrderBtn,
   .closeOrderBtn img {
     width: 30px;
     height: 30px;
   }
 
-  .closeBtn,
+  .fillings__close-button,
   .closeOrderBtn {
     top: -10%;
     right: -5%;
   }
 
-  .fillingsItem {
+  .fillings-item {
     width: 80px;
     height: 80px;
   }
@@ -901,27 +902,27 @@ body {
 }
 
 @media all and (max-width: 500px) {
-  .fillingsContainer,
+  .fillings_container,
   .orderModal,
   .successfullyModal {
     width: 380px;
   }
 
-  .closeBtn img,
-  .closeBtn,
+  .fillings__close-button img,
+  .fillings__close-button,
   .closeOrderBtn,
   .closeOrderBtn img {
     width: 25px;
     height: 25px;
   }
 
-  .closeBtn,
+  .fillings__close-button,
   .closeOrderBtn {
     top: -8%;
     right: -5%;
   }
 
-  .fillingsItem {
+  .fillings-item {
     width: 80px;
     height: 80px;
   }
@@ -966,21 +967,21 @@ body {
     font-size: 20px;
   }
 
-  .fillingsContainer,
+  .fillings_container,
   .orderModal,
   .successfullyModal {
     width: 300px;
   }
 
-  .closeBtn img,
-  .closeBtn,
+  .fillings__close-button img,
+  .fillings__close-button,
   .closeOrderBtn,
   .closeOrderBtn img {
     width: 25px;
     height: 25px;
   }
 
-  .fillingsContainer,
+  .fillings_container,
   .successfullyModal {
     height: 255px;
   }
@@ -989,7 +990,7 @@ body {
     height: 195px;
   }
 
-  .closeBtn,
+  .fillings__close-button,
   .closeOrderBtn {
     top: -13%;
   }
@@ -1000,7 +1001,7 @@ body {
     width: 280px;
   }
 
-  .fillingsItem {
+  .fillings-item {
     width: 50px;
     height: 50px;
   }
@@ -1022,18 +1023,18 @@ body {
     margin-bottom: -40px;
   }
 
-  .fillingsAndCost {
+  .fillings-item_container {
     width: 80px;
     padding: 3px;
   }
 }
 
 @media all and (max-width: 280px) {
-  .foodContainer {
+  .dish-container {
     width: 70%;
   }
 
-  .menuContent {
+  .menu-content {
     width: 215px;
   }
 
@@ -1050,7 +1051,7 @@ body {
     font-size: 25px;
   }
 
-  .foodElement {
+  .dish-item {
     height: 130px;
   }
 
@@ -1065,4 +1066,4 @@ body {
   .footer {
     margin-top: 270px;
   }
-}
+} */

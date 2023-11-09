@@ -3,7 +3,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/MyPlace.js',
+  entry: './src/App.js',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist', 'assets', 'scripts'),
