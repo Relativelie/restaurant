@@ -17,19 +17,22 @@ class Fillings {
       this.fillingsItemsContainer.appendChild(itemBody);
     });
 
-    const closeButton = document.querySelector('.choose-filling-button');
+    const closeButton = document.querySelector('.fillings__close-button');
     closeButton.addEventListener('click', () => {
+      this.onCloseFillingsModal();
+    });
+
+    const fillingsBackdrop = document.querySelector('.fillings_backdrop');
+    fillingsBackdrop.addEventListener('click', () => {
       this.onCloseFillingsModal();
     });
   }
 
   onCloseFillingsModal() {
-    console.log('onCloseFillingsModal');
     this.fillingsModal.style.display = 'none';
   }
 
   onOpenFillingsModal() {
-    console.log('onOpenFillingsModal');
     this.fillingsModal.style.display = 'block';
   }
 }
