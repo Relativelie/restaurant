@@ -1,15 +1,19 @@
-/* eslint-disable class-methods-use-this */
-import dishData from '../data/dish-data';
-import categoryData from '../data/category-data';
+import dishData from './data/dish-data';
+import categoryData from './data/category-data';
 import DishItem from './components/DishItem';
 import CategoryItem from './components/CategoryItem';
-import Fillings from './components/fillings/Fillings';
+import FillingsModal from './components/fillings-modal/Fillings';
 
 class DishMenu {
-  constructor() {
+  constructor(addToBasket) {
     this.dishData = dishData;
     this.categoryData = categoryData;
+
     this.selectedCategory = 'breakfast';
+    this.selectedDish = null;
+    this.selectedFilling = null;
+
+    this.addToBasket = addToBasket;
   }
 
   renderDish() {
@@ -17,21 +21,36 @@ class DishMenu {
     menuContent.innerHTML = '';
 
     this.dishData[this.selectedCategory].map((dish) => {
-      const item = new DishItem(dish);
+      const item = new DishItem(dish, this.selectFilling);
       const itemBody = item.create();
       itemBody
         .querySelector('.choose-filling-button')
-        .addEventListener('click', () => {
-          this.openFillingsModal(dish.fillings);
+        .addEventListener('click', (e) => {
+          this.openFillingsModal(e, dish.fillings);
         });
       menuContent.appendChild(itemBody);
     });
   }
 
-  openFillingsModal(curFillings) {
-    const fillings = new Fillings(curFillings);
+  openFillingsModal(e, curFillings) {
+    this.selectedDish = e.currentTarget.closest('.dish-item').dataset.dish;
+    const fillings = new FillingsModal(
+      curFillings,
+      this.onAddToBasket.bind(this),
+      (value) => {
+        this.selectFilling(value);
+      },
+    );
     fillings.onOpenFillingsModal();
     fillings.create();
+  }
+
+  onAddToBasket() {
+    this.addToBasket(
+      this.selectedCategory,
+      this.selectedDish,
+      this.selectedFilling,
+    );
   }
 
   renderCategory() {
@@ -56,6 +75,10 @@ class DishMenu {
 
   selectNewCategory(e) {
     this.selectedCategory = e.currentTarget.dataset.category;
+  }
+
+  selectFilling(value) {
+    this.selectedFilling = value;
   }
 }
 

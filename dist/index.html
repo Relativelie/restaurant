@@ -11,8 +11,8 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <link rel="stylesheet" href="./assets/styles/intro.css" />
     <link rel="stylesheet" href="./assets/styles/header.css" />
-    <link rel="stylesheet" href="./assets/styles/menu.css" />
     <link rel="stylesheet" href="./assets/styles/trolley_button.css" />
     <link rel="stylesheet" href="./assets/styles/about.css" />
     <link rel="stylesheet" href="./assets/styles/common.css" />
@@ -53,25 +53,49 @@
     <template id="fillings-item-template">
       <div class="fillings-item_container">
         <div class="fillings-item"></div>
-        <h4>bacon</h4>
-        <p>$3</p>
+        <h4></h4>
+        <p></p>
       </div>
     </template>
 
-    <div class="fillings">
+    <template id="empty-basket-template">
+      <div class="basket_empty">
+        <h3>Your basket is empty, please add an item to checkout.</h3>
+      </div>
+    </template>
+
+    <template id="basket-template">
+      <div class="basket__content"></div>
+      <button class="btn basket__order-button">Order</button>
+    </template>
+
+    <template id="basket-category-template">
+      <div class="basket__category">
+        <h3></h3>
+      </div>
+    </template>
+
+    <template id="basket-category-item-template">
+      <div class="basket__category__item">
+        <p></p>
+        <p></p>
+      </div>
+    </template>
+
+    <div class="fillings-modal">
       <div class="fillings_backdrop"></div>
       <div class="fillings_container">
         <div class="fillings__close-button">
           <img src="assets/png/close.png" alt="" />
         </div>
-        <h3>Choice of options</h3>
+        <h3>Choose options</h3>
         <div class="fillings-items"></div>
         <button class="fillings__add-button btn">Add to Basket</button>
       </div>
     </div>
 
-    <!-- HEADER -->
-    <div class="header header_bg">
+    <!-- INTRO -->
+    <div class="intro intro_bg">
       <h2>Discover</h2>
       <h1>Gu Repio</h1>
       <p>Making delicious food since 1990</p>
@@ -79,23 +103,19 @@
         <button class="btn">Our menu</button>
       </a>
     </div>
-    <!-- MENU -->
-    <div class="menu">
-      <div class="menu__header">
-        <h4>Gu Repio</h4>
-      </div>
-      <div class="menu__button basket-animation remove-animation">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h4>Gu Repio</h4>
+
+      <!-- Basket -->
+      <div class="basket-button basket-animation remove-animation">
         <img src="assets/png/trolley.png" alt="" />
-        <div class="trolley-count"></div>
-        <div class="trolley-menu-container">
-          <div class="basket-container trolleyMenu empty close-trolley">
-            <div class="empty-trolley">
-              <h3>Cart is empty, put in it something from here.</h3>
-            </div>
-            <div class="basket"></div>
-            <button class="btn orderBtn">Order</button>
-          </div>
-        </div>
+        <div class="basket__count"></div>
+      </div>
+      <div class="basket__popup basket_inactive">
+        <div class="basket_backdrop"></div>
+        <div class="basket__popup_container trolleyMenu"></div>
       </div>
     </div>
     <!-- ABOUT US -->
@@ -110,7 +130,8 @@
       </div>
       <div class="about_image-container"></div>
     </div>
-    <!-- MENU OF CAFE -->
+
+    <!-- MENU -->
     <div id="cafeMenu">
       <div class="cafeMenuHeader blockHeaders">
         <h3>Our</h3>
@@ -125,6 +146,8 @@
         </div>
       </div>
     </div>
+
+    <!-- ORDER -->
     <div class="orderBlock">
       <div class="orderBackground"></div>
       <div class="orderModal">

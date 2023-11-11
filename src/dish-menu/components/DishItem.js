@@ -16,6 +16,7 @@ class DishItem {
     itemBody.querySelector(
       '.dish-item__image',
     ).style.backgroundImage = `url("../assets/jpg/${image}")`;
+    itemBody.querySelector('.dish-item').dataset.dish = name;
 
     return itemBody;
   }

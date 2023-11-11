@@ -1,16 +1,15 @@
-/* eslint-disable class-methods-use-this */
 import CategoryItemEntity from '../models/CategoryItemEntity';
 
 class CategoryItem {
   constructor(category, onClickCategory, selectedCategory) {
-    this.itemTemplate = document.getElementById('category-item-template');
     this.menuItem = new CategoryItemEntity(category);
     this.onClick = onClickCategory;
     this.selectedCategory = selectedCategory;
   }
 
   create() {
-    const itemBody = document.importNode(this.itemTemplate.content, true);
+    const itemTemplate = document.getElementById('category-item-template');
+    const itemBody = document.importNode(itemTemplate.content, true);
 
     const { name, image, dataAttribute } = this.menuItem;
     itemBody.querySelector('p').textContent = name;
