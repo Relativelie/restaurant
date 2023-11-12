@@ -1,47 +1,53 @@
+import Component from '../../common-components/Component';
 import CategoryItemEntity from '../models/CategoryItemEntity';
 
-class CategoryItem {
+class CategoryItem extends Component {
+  #selectedClassName = 'selected';
+
   constructor(category, onClickCategory, selectedCategory) {
-    this.menuItem = new CategoryItemEntity(category);
+    super('#category-item-template');
     this.onClick = onClickCategory;
     this.selectedCategory = selectedCategory;
+    this.menuItem = new CategoryItemEntity(category);
   }
 
   create() {
-    const itemTemplate = document.getElementById('category-item-template');
-    const itemBody = document.importNode(itemTemplate.content, true);
+    const itemBody = super.getTemplateBody();
 
     const { name, image, dataAttribute } = this.menuItem;
     itemBody.querySelector('p').textContent = name;
     itemBody.querySelector('img').src = `../assets/png/${image}`;
     itemBody.querySelector('.category-item').dataset.category = dataAttribute;
-    if (this.selectedCategory === dataAttribute) {
-      this.selectCategory(itemBody.querySelector('.category-item'));
-    }
 
-    itemBody.querySelector('.category-item').addEventListener('click', (e) => {
-      this.onClickCategoryItem(e);
-    });
+    const isSelected = this.selectedCategory === dataAttribute;
+    this.addSelectedClass(isSelected, itemBody.querySelector('.category-item'));
+
+    itemBody
+      .querySelector('.category-item')
+      .addEventListener('click', this.onClickCategoryItem.bind(this));
 
     return itemBody;
   }
 
   onClickCategoryItem(e) {
     this.deselectPrevCategory();
-    this.selectCategory(e.currentTarget);
+    this.addSelectedClass(true, e.currentTarget);
     this.onClick(e);
   }
 
   deselectPrevCategory() {
     const categoriesContainer = document.querySelector('.categories');
-    const selectedCategory = categoriesContainer.querySelector('.selected');
+    const selectedCategory = categoriesContainer.querySelector(
+      `.${this.#selectedClassName}`,
+    );
     if (selectedCategory) {
-      selectedCategory.classList.remove('selected');
+      selectedCategory.classList.remove(this.#selectedClassName);
     }
   }
 
-  selectCategory(selector) {
-    selector.classList.add('selected');
+  addSelectedClass(isSelected, selector) {
+    if (!isSelected) return;
+    selector.classList.add(this.#selectedClassName);
   }
 }
 

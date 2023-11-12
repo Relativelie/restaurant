@@ -1,16 +1,18 @@
+import Component from '../../../common-components/Component';
 import FillingItemEntity from '../../models/FillingItemEntity';
 
-class FillingsItem {
+class FillingsItem extends Component {
   #selectedClassName = 'fillings-item_selected';
 
   constructor(filling, onSelectFilling) {
-    this.itemTemplate = document.getElementById('fillings-item-template');
+    super('#fillings-item-template');
+
     this.filling = new FillingItemEntity(filling);
     this.onSelectFilling = onSelectFilling;
   }
 
   create() {
-    const itemBody = document.importNode(this.itemTemplate.content, true);
+    const itemBody = super.getTemplateBody();
 
     const { name, price, image } = this.filling;
     itemBody.querySelector('p').textContent = name;
@@ -28,15 +30,16 @@ class FillingsItem {
   }
 
   onClickFilling(e, fillingsItem) {
-    const isSelected = e.currentTarget.querySelector(
-      `.${this.#selectedClassName}`,
-    );
-    if (isSelected) {
+    if (this.hasSelectedFilling(e)) {
       this.unselectFilling();
       return;
     }
     this.unselectFilling(this);
     this.selectFilling(fillingsItem);
+  }
+
+  hasSelectedFilling(e) {
+    e.currentTarget.querySelector(`.${this.#selectedClassName}`);
   }
 
   selectFilling(fillingsItem) {

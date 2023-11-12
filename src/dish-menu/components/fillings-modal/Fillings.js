@@ -9,12 +9,12 @@ class FillingsModal {
     this.onSelectFilling = onSelectFilling;
   }
 
-  create() {
-    this.createFillingsItems();
+  render() {
+    this.renderFillings();
     this.onAddListeners();
   }
 
-  createFillingsItems() {
+  renderFillings() {
     const fillingsItems = document.querySelector('.fillings-items');
     fillingsItems.innerHTML = '';
 

@@ -1,8 +1,7 @@
 class BasketItemEntity {
   constructor(dish, filling) {
-    this.name = dish;
-    this.price = filling.price;
-    this.filling = filling.name;
+    this.dish = dish;
+    this.filling = filling;
   }
 }
 export default BasketItemEntity;

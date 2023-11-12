@@ -33,7 +33,8 @@ class DishMenu {
   }
 
   openFillingsModal(e, curFillings) {
-    this.selectedDish = e.currentTarget.closest('.dish-item').dataset.dish;
+    this.selectedDish = this.getSelectedDish(e);
+
     const fillings = new FillingsModal(
       curFillings,
       this.onAddToBasket.bind(this),
@@ -41,11 +42,26 @@ class DishMenu {
         this.selectFilling(value);
       },
     );
+
     fillings.onOpenFillingsModal();
-    fillings.create();
+    fillings.render();
+  }
+
+  getSelectedDish(e) {
+    const selectedDishId = parseInt(
+      e.currentTarget.closest('.dish-item').dataset.dish,
+      10,
+    );
+    return this.dishData[this.selectedCategory].find(
+      (dish) => dish.id === selectedDishId,
+    );
   }
 
   onAddToBasket() {
+    if (!this.selectedFilling) {
+      return;
+    }
+
     this.addToBasket(
       this.selectedCategory,
       this.selectedDish,
