@@ -1,4 +1,5 @@
 import Component from '../common-components/Component';
+import Order from '../order/Order';
 import CategoryContainer from './components/CategoryContainer';
 import EmptyBasket from './components/EmptyBasket';
 import BasketEntity from './models/BasketEntity';
@@ -6,6 +7,7 @@ import BasketItemEntity from './models/BasketItemEntity';
 
 class Basket extends Component {
   #inactiveClass = 'basket_inactive';
+  #removeAnimationClass = 'remove-animation';
 
   constructor() {
     super('#basket-template');
@@ -13,11 +15,20 @@ class Basket extends Component {
     this.basketPopup = document.querySelector('.basket__popup');
     this.basketButton = document.querySelector('.basket-button');
 
-    this.categoryItems = new BasketEntity();
+    this.orderingItems = new BasketEntity();
   }
 
   get isActivePopup() {
     return !this.basketPopup.classList.contains(this.#inactiveClass);
+  }
+
+  get totalCost() {
+    let sum = 0;
+    Object.values(this.orderingItems).forEach((items) => {
+      if (!items.length) return;
+      sum = items.reduce((acc, item) => acc + item.filling.price, sum);
+    });
+    return sum;
   }
 
   create() {
@@ -25,7 +36,7 @@ class Basket extends Component {
       this.switchBasketPopup();
     });
 
-    const basketBackdrop = document.querySelector('.basket_backdrop');
+    const basketBackdrop = document.querySelector('.basket__popup .modal-backdrop');
     basketBackdrop.addEventListener('click', () => {
       this.switchBasketPopup();
     });
@@ -33,23 +44,43 @@ class Basket extends Component {
 
   renderBasketItems() {
     const basketBody = super.getTemplateBody();
-
-    Object.keys(this.categoryItems).map((key) => {
-      const body = new CategoryContainer(key, this.categoryItems[key]).create();
-      basketBody.insertBefore(body, basketBody.firstChild);
-    });
-
     const basketContainer = document.querySelector('.basket__popup_container');
     basketContainer.innerHTML = '';
 
     basketContainer.appendChild(basketBody);
+
+    Object.keys(this.orderingItems).map((key) => {
+      if (this.orderingItems.isEmptyCategory(key)) return;
+
+      const body = new CategoryContainer(key, this.orderingItems[key]).create();
+      basketContainer
+        .querySelector('.basket__content')
+        .appendChild(body, basketBody.firstChild);
+    });
+
+    const totalCostSelector = basketContainer.querySelectorAll(
+      '.basket__total-cost p',
+    )[1];
+    totalCostSelector.textContent = `$${this.totalCost}`;
+
+    const orderBtn = document.querySelector('.basket__order-btn');
+    orderBtn.addEventListener('click', () => {
+      this.onClickToOrder(this);
+    });
+  }
+
+  onClickToOrder() {
+    this.closeBasketPopup();
+    const order = new Order(this.totalCost, this.orderingItems, this.onClearBasket.bind(this));
+    order.render();
   }
 
   openBasketPopup() {
     this.basketButton.querySelector('img').src = '../assets/png/close.png';
     this.basketPopup.classList.remove(this.#inactiveClass);
+    document.querySelector('body').style.overflow = 'hidden';
 
-    if (this.categoryItems.isEmpty) {
+    if (this.orderingItems.isEmptyBasket) {
       new EmptyBasket().render();
       return;
     }
@@ -60,6 +91,7 @@ class Basket extends Component {
   closeBasketPopup() {
     this.basketButton.querySelector('img').src = '../assets/png/trolley.png';
     this.basketPopup.classList.add(this.#inactiveClass);
+    document.querySelector('body').style.overflow = 'auto';
   }
 
   switchBasketPopup() {
@@ -71,7 +103,23 @@ class Basket extends Component {
   }
 
   addItem(category, dish, filling) {
-    this.categoryItems.addItem(category, new BasketItemEntity(dish, filling));
+    this.orderingItems.addItem(category, new BasketItemEntity(dish, filling));
+    this.toAnimateBasketButton();
+  }
+
+  toAnimateBasketButton() {
+    const basketBtn = document.querySelector('.basket-button');
+
+    basketBtn.classList.remove(this.#removeAnimationClass);
+    const myTimeout = setInterval(() => {
+      basketBtn.classList.add(this.#removeAnimationClass);
+      clearInterval(myTimeout);
+    }, 1000);
+  }
+
+  onClearBasket() {
+    this.orderingItems.clearBasket();
+    this.renderBasketItems(this);
   }
 }
 

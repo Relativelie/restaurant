@@ -16,7 +16,7 @@ class CategoryContainer extends Component {
 
     this.categoryItems.map((item) => {
       const categoryItemBody = new CategoryItem(item).create();
-      itemBody.appendChild(categoryItemBody);
+      itemBody.querySelector('.basket__category').appendChild(categoryItemBody);
     });
 
     return itemBody;

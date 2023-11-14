@@ -36,7 +36,7 @@ class CategoryItem extends Component {
   }
 
   deselectPrevCategory() {
-    const categoriesContainer = document.querySelector('.categories');
+    const categoriesContainer = document.querySelector('.menu__categories');
     const selectedCategory = categoriesContainer.querySelector(
       `.${this.#selectedClassName}`,
     );

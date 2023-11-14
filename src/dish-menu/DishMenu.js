@@ -17,7 +17,7 @@ class DishMenu {
   }
 
   renderDish() {
-    const menuContent = document.querySelector('.dish-container');
+    const menuContent = document.querySelector('.dish');
     menuContent.innerHTML = '';
 
     this.dishData[this.selectedCategory].map((dish) => {
@@ -70,7 +70,7 @@ class DishMenu {
   }
 
   renderCategory() {
-    const categoriesContainer = document.querySelector('.categories');
+    const categoriesContainer = document.querySelector('.menu__categories');
     categoriesContainer.innerHTML = '';
 
     Object.keys(this.categoryData).map((category) => {

@@ -15,7 +15,7 @@ class CategoryItem extends Component {
     const [nameSelector, priceSelector] = allTextContent;
 
     nameSelector.textContent = `${dish.name} with ${filling.name}`;
-    priceSelector.textContent = filling.price;
+    priceSelector.textContent = `$${filling.price}`;
 
     return itemBody;
   }

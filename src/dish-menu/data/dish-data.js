@@ -58,6 +58,7 @@ export default {
 
   lunch: [
     {
+      id: 5,
       name: 'Salad',
       description: 'Healthy and low-calorie food',
       price: 4,
@@ -70,6 +71,7 @@ export default {
       image: 'salad.jpg',
     },
     {
+      id: 6,
       name: 'Appetizers',
       description: 'Healthy and low-calorie food',
       price: 2,
@@ -87,6 +89,7 @@ export default {
       image: 'appetizers.jpg',
     },
     {
+      id: 7,
       name: 'Soup',
       description: 'Healthy and low-calorie food',
       price: 1,
@@ -99,6 +102,7 @@ export default {
       image: 'soup.jpg',
     },
     {
+      id: 8,
       name: 'Sandwiches',
       description: 'Low-calorie food',
       price: 2,
@@ -113,6 +117,7 @@ export default {
   ],
   dinner: [
     {
+      id: 9,
       name: 'Pasta',
       description:
         'Our appetizers should be big on flavor, small on size, and price',
@@ -126,6 +131,7 @@ export default {
       image: 'pasta.jpg',
     },
     {
+      id: 10,
       name: 'Seafood',
       description: 'Always a great choice',
       price: 12,
@@ -138,6 +144,7 @@ export default {
       image: 'seafood.jpg',
     },
     {
+      id: 11,
       name: 'Meat',
       description: 'Always a great choice',
       price: 10,
@@ -170,6 +177,7 @@ export default {
       image: 'meat.jpg',
     },
     {
+      id: 12,
       name: 'Wraps',
       description: 'Always a great choice',
       price: 2,
@@ -184,6 +192,7 @@ export default {
   ],
   drinks: [
     {
+      id: 13,
       name: 'Cocktails',
       description:
         'We offer a great variety of the very best cocktails you’ll find',
@@ -197,6 +206,7 @@ export default {
       image: 'cocktails.jpg',
     },
     {
+      id: 14,
       name: 'Wine',
       description:
         'Each wine listed below also includes alternative varieties that taste similar',
@@ -215,6 +225,7 @@ export default {
       image: 'wine.jpg',
     },
     {
+      id: 15,
       name: 'Coffee & Tea',
       description: 'Healthy and low calorie',
       price: 1,
@@ -227,6 +238,7 @@ export default {
       image: 'coffee.jpg',
     },
     {
+      id: 16,
       name: 'Beer',
       description: 'Always a great choice',
       price: 3,

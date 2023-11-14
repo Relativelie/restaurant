@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="./assets/styles/header.css" />
     <link rel="stylesheet" href="./assets/styles/basket.css" />
     <link rel="stylesheet" href="./assets/styles/about.css" />
+    <link rel="stylesheet" href="./assets/styles/menu.css" />
     <link rel="stylesheet" href="./assets/styles/common.css" />
+    <link rel="stylesheet" href="./assets/styles/order-modal.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,7 +47,7 @@
 
     <template id="category-item-template">
       <div class="category-item">
-        <img src="assets/png/breakfast.png" alt="" />
+        <img src="" alt="" />
         <p></p>
       </div>
     </template>
@@ -66,7 +68,12 @@
 
     <template id="basket-template">
       <div class="basket__content"></div>
-      <button class="btn basket__order-button">Order</button>
+      <hr />
+      <div class="basket__total-cost">
+        <p>Total cost</p>
+        <p></p>
+      </div>
+      <button class="btn basket__order-btn">Order</button>
     </template>
 
     <template id="basket-category-template">
@@ -82,15 +89,67 @@
       </div>
     </template>
 
-    <div class="fillings-modal">
-      <div class="fillings_backdrop"></div>
-      <div class="fillings_container">
-        <div class="fillings__close-button">
+    <div class="order-modal order-modal__form order-modal_inactive modal">
+      <div class="modal-backdrop"></div>
+      <div class="order-modal_container modal_container">
+        <div class="order-modal__close-btn modal__close-btn">
+          <img src="assets/png/close.png" alt="close" />
+        </div>
+        <div>
+          <h3>Order</h3>
+          <p>We'll call you back ASAP to clarify the order</p>
+        </div>
+        <form action="">
+          <div>
+            <label for="">Phone number *</label>
+            <div class="order-modal__phone-container">
+              <p class="prefix">+381</p>
+              <input
+                class="order-modal__form-phone"
+                placeholder="123456789"
+                type="number"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="">Name *</label>
+            <input placeholder="name" type="text" />
+          </div>
+          <div>
+            <label for="">Delivery address *</label>
+            <input placeholder="address" type="text" />
+          </div>
+          <div class="order-modal__error">
+            <p></p>
+          </div>
+          <div class="order-modal__total-cost">
+            <label for="">Total cost</label>
+            <p></p>
+          </div>
+        </form>
+        <div class="order-modal__send-btn">
+          <button class="btn">Send</button>
+        </div>
+      </div>
+    </div>
+    <div class="order-modal order-modal__success order-modal_inactive modal">
+      <div class="modal-backdrop"></div>
+      <div class="order-modal_container">
+        <h3>Your order has been sent for processing</h3>
+        <p>We will call you back within 5min</p>
+        <button class="order-modal__success-btn btn">Ok</button>
+      </div>
+    </div>
+
+    <div class="fillings-modal fillings-modal_inactive modal">
+      <div class="modal-backdrop"></div>
+      <div class="fillings_container  modal_container">
+        <div class="fillings__close-btn modal__close-btn">
           <img src="assets/png/close.png" alt="" />
         </div>
         <h3>Choose options</h3>
         <div class="fillings-items"></div>
-        <button class="fillings__add-button btn">Add to Basket</button>
+        <button class="fillings__add-btn btn">Add to Basket</button>
       </div>
     </div>
 
@@ -99,7 +158,7 @@
       <h2>Discover</h2>
       <h1>Gu Repio</h1>
       <p>Making delicious food since 1990</p>
-      <a href="#cafeMenu">
+      <a href="#menu">
         <button class="btn">Our menu</button>
       </a>
     </div>
@@ -114,85 +173,44 @@
         <div class="basket__count"></div>
       </div>
       <div class="basket__popup basket_inactive">
-        <div class="basket_backdrop"></div>
-        <div class="basket__popup_container trolleyMenu"></div>
+        <div class="modal-backdrop"></div>
+        <div class="basket__popup_container"></div>
       </div>
     </div>
 
     <!-- ABOUT US -->
     <div class="about">
-      <div class="aboutUsItem blockHeaders">
+      <div class="about_container block-header">
         <h3>About</h3>
         <h2>OUR RESTAURANT</h2>
-        <p>
-          We want that the world have more healthy and happy people, therefore,
-          our restaurant is collected the most modern trends of restaurants
-        </p>
+        <div class="about__description">
+          <p>
+            We want that the world have more healthy and happy people,
+            therefore, our restaurant is collected the most modern trends of
+            restaurants
+          </p>
+        </div>
       </div>
       <div class="about_image-container"></div>
     </div>
 
     <!-- MENU -->
-    <div id="cafeMenu">
-      <div class="cafeMenuHeader blockHeaders">
+    <div id="menu">
+      <div class="block-header">
         <h3>Our</h3>
         <h2>MENU</h2>
       </div>
-      <div class="menuForMobile">
-        <div class="menuButtons">
-          <div class="categories"></div>
-        </div>
-        <div class="menu-content">
-          <div class="dish-container"></div>
-        </div>
+      <div class="menu__categories_container">
+        <div class="menu__categories"></div>
       </div>
-    </div>
-
-    <!-- ORDER -->
-    <div class="orderBlock">
-      <div class="orderBackground"></div>
-      <div class="orderModal">
-        <div class="closeOrderBtn">
-          <img src="assets/png/close.png" alt="" />
-        </div>
-        <h3>Order periodical</h3>
-        <p>We'll call you back ASAP to clarify the order</p>
-        <div class="basketItems"></div>
-        <form action="">
-          <div>
-            <label for="">Phone number</label>
-            <input type="tel" />
-          </div>
-          <div>
-            <label for="">Name</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label for="">Delivery address</label>
-            <input type="text" />
-          </div>
-          <div class="orderCosts">
-            <label for="">Order costs</label>
-            <p></p>
-          </div>
-        </form>
-        <div class="sendOrderBtn">
-          <button class="btn">Order</button>
-        </div>
-      </div>
-    </div>
-    <div class="successfullyOrder">
-      <div class="successfullyBackground"></div>
-      <div class="successfullyModal">
-        <h3>Your order has been sent for processing</h3>
-        <p>We will call you back within 5min</p>
-        <button class="btn">Ok</button>
+      <div class="menu-content">
+        <div class="dish"></div>
       </div>
     </div>
 
     <!-- ANOTHER OFFERS -->
     <div>
-      <div class="blockHeaders">
+      <div class="block-header">
         <h3>Our</h3>
         <h2>ANOTHER OFFERS</h2>
       </div>
@@ -204,11 +222,11 @@
       <div class="contactInfo">
         <div class="numbers">
           <div class="numbersItem">
-            <a href="tel: +000000000" class="phoneNumberStyle">+000 000 000</a>
-            <p class="numberPar">Free for Canada</p>
+            <a href="tel: +0000000000" class="phoneNumberStyle">+000 000 000</a>
+            <p class="numberPar">Free for Serbia</p>
           </div>
           <div class="numbersItem">
-            <a href="tel: +000000000" class="phoneNumberStyle">+000 000 000</a>
+            <a href="tel: +0000000000" class="phoneNumberStyle">+000 000 000</a>
             <p class="numberPar">For calls from abroad</p>
           </div>
         </div>

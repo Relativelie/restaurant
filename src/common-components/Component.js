@@ -1,10 +1,8 @@
 class Component {
   constructor(templateSelector) {
-    if (templateSelector) {
-      this.templateEl = document.querySelector(templateSelector);
-    } else {
-      this.templateEl = document.body;
-    }
+    this.templateEl = templateSelector
+      ? document.querySelector(templateSelector)
+      : document.body;
   }
 
   getTemplateBody() {

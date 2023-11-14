@@ -6,17 +6,24 @@ class BasketEntity {
     this.drinks = [];
   }
 
-  get isEmpty() {
+  get isEmptyBasket() {
     return Object.values(this).every((item) => item.length === 0);
+  }
+
+  isEmptyCategory(category) {
+    return this[category].length === 0;
   }
 
   addItem(category, item) {
     this[category].push(item);
   }
 
-  // removeItem(item) {
-  //   this.items = this.items.filter((i) => i !== item);
-  // }
+  clearBasket() {
+    this.breakfast = [];
+    this.lunch = [];
+    this.dinner = [];
+    this.drinks = [];
+  }
 }
 
 export default BasketEntity;
