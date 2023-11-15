@@ -14,24 +14,18 @@
 
 .order-modal h3 {
   font-size: 25px;
-  color: #fff;
   text-align: center;
-  font-family: 'Nunito', sans-serif;
   margin: 0;
 }
 
 .order-modal_container label {
   font-size: 20px;
-  color: #fff;
-  font-family: 'Nunito', sans-serif;
   text-shadow: 0 2px 10px rgb(0, 0, 0);
   text-align: center;
 }
 
 .order-modal p {
   font-size: 15px;
-  color: #fff;
-  font-family: 'Nunito', sans-serif;
   text-shadow: 0 2px 10px rgb(0, 0, 0);
   text-align: center;
   margin-top: 0;
@@ -82,11 +76,6 @@
 
 .order-modal__phone-container input {
   width: 8em;
-}
-
-.order-modal__phone-container p {
-  color: #fff;
-  font-family: 'Nunito', sans-serif;
 }
 
 .order-modal_error-border {

@@ -33,7 +33,7 @@ class FillingsModal {
       this.onCloseFillingsModal();
     });
 
-    const fillingsBackdrop = document.querySelector('.modal-backdrop');
+    const fillingsBackdrop = document.querySelector('.fillings-modal .modal-backdrop');
     fillingsBackdrop.addEventListener('click', () => {
       this.onCloseFillingsModal();
     });

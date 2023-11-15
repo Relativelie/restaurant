@@ -1,0 +1,41 @@
+.footer {
+  background-color: rgb(29, 29, 29);
+  box-shadow: 0 0 10px rgb(14, 13, 13);
+  margin-top: 5em;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-size: 100%;
+}
+
+.social-network__item {
+  padding: 15px;
+}
+
+.social-network__item img {
+  height: 50px;
+  border-radius: 14px;
+  filter: grayscale(100%) opacity(70%);
+}
+
+.social-network__item img:hover {
+  filter: none;
+}
+
+.social-network {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info a {
+  color: #fff;
+}
+
+.social-network a {
+  color: transparent;
+}

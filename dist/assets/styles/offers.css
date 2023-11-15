@@ -1,0 +1,115 @@
+.offer__item {
+  width: 25em;
+  height: 20em;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.offer__item_gif {
+  width: 25em;
+  height: 20em;
+}
+
+.offer__item__description {
+  width: 25em;
+  height: 20em;
+  position: absolute;
+  top: 12em;
+  padding: 8px;
+
+  background-color: rgb(255, 254, 254);
+  transition: top .7s ease-in-out;
+  z-index: 2;
+}
+
+.offer__item__description > div {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  height: 8em;
+}
+
+.offer__item_cover {
+  width: 25em;
+  height: 20em;
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.offer__item_cover:hover ~ .offer__item__description {
+  top: 0;
+}
+
+.offer__item h2 {
+  margin: 0;
+  font-size: 2em;
+  color: rgb(207, 141, 79);
+  font-family: 'Dancing Script', cursive;
+}
+
+.offer__item__desc-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.offer__item h3,
+.offer__item__desc-text p {
+  margin: 0;
+  color: rgb(76, 71, 71);
+  font-family: 'Nunito', sans-serif;
+}
+
+.offer__item__desc-text p {
+  font-size: 12px;
+}
+
+.offer__item__description img {
+  width: 5em;
+}
+
+.offer__item_desc-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.offer__item_btn {
+  position: absolute;
+  top: 12em;
+  left: 5%;
+  z-index: 3;
+  opacity: 0;
+  transition: all .7s ease-in-out;
+}
+
+.offer__item_cover:hover ~ .offer__item_btn {
+  opacity: 1;
+  top: 5em;
+}
+
+.offer-item-description {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.offer-item-description h5 {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+.offer-items {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.offer-description {
+  display: flex;
+  justify-content: center;
+}

@@ -10,7 +10,7 @@
       href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-restaurant-hotel-service-becris-lineal-color-becris.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <link rel="stylesheet" href="./assets/styles/footer.css" />
     <link rel="stylesheet" href="./assets/styles/intro.css" />
     <link rel="stylesheet" href="./assets/styles/header.css" />
     <link rel="stylesheet" href="./assets/styles/basket.css" />
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./assets/styles/menu.css" />
     <link rel="stylesheet" href="./assets/styles/common.css" />
     <link rel="stylesheet" href="./assets/styles/order-modal.css" />
+    <link rel="stylesheet" href="./assets/styles/offers.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,14 +33,14 @@
         <div class="dish-item__about">
           <div>
             <h2></h2>
-            <p></p>
+            <p class="font-light-noto"></p>
           </div>
           <div class="dish-item__image-container">
             <div class="dish-item__image"></div>
           </div>
         </div>
         <div class="dish-item__price">
-          <h3></h3>
+          <h3 class="font-light-noto"></h3>
           <button class="choose-filling-button btn">Choose</button>
         </div>
       </div>
@@ -48,21 +49,23 @@
     <template id="category-item-template">
       <div class="category-item">
         <img src="" alt="" />
-        <p></p>
+        <p class="font-light-noto"></p>
       </div>
     </template>
 
     <template id="fillings-item-template">
       <div class="fillings-item_container">
-        <div class="fillings-item"></div>
-        <h4></h4>
-        <p></p>
+        <div class="font-noto-sans fillings-item"></div>
+        <h4 class="font-light-noto"></h4>
+        <p class="font-light-noto"></p>
       </div>
     </template>
 
     <template id="empty-basket-template">
       <div class="basket_empty">
-        <h3>Your basket is empty, please add an item to checkout.</h3>
+        <h3 class="font-light-noto">
+          Your basket is empty, please add an item to checkout.
+        </h3>
       </div>
     </template>
 
@@ -70,21 +73,48 @@
       <div class="basket__content"></div>
       <hr />
       <div class="basket__total-cost">
-        <p>Total cost</p>
-        <p></p>
+        <p class="font-light-noto">Total cost</p>
+        <p class="font-light-noto"></p>
       </div>
       <button class="btn basket__order-btn">Order</button>
     </template>
 
     <template id="basket-category-template">
       <div class="basket__category">
-        <h3></h3>
+        <h3 class="font-light-noto"></h3>
       </div>
     </template>
 
     <template id="basket-category-item-template">
-      <div class="basket__category__item">
+      <div class="basket__category__item font-light-noto">
         <p></p>
+        <p></p>
+      </div>
+    </template>
+
+    <template id="offer-item-template">
+      <div class="offer__item">
+        <a class="offer__item_cover" href="" target="_blank"></a>
+        <img class="offer__item_gif" src="" alt="project" />
+        <button class="btn offer__item_btn">Go to page</button>
+        <div class="offer__item__description">
+          <div>
+            <div class="offer__item_desc-container">
+              <div>
+                <h2></h2>
+                <h3></h3>
+              </div>
+              <img src="" alt="nutrients" />
+            </div>
+          </div>
+
+          <div class="offer__item__desc-text"></div>
+        </div>
+      </div>
+    </template>
+    <template id="offer-item-desc-template">
+      <div class="offer-item-description">
+        <h5></h5>
         <p></p>
       </div>
     </template>
@@ -96,11 +126,13 @@
           <img src="assets/png/close.png" alt="close" />
         </div>
         <div>
-          <h3>Order</h3>
-          <p>We'll call you back ASAP to clarify the order</p>
+          <h3 class="font-light-noto">Order</h3>
+          <p class="font-light-noto">
+            We'll call you back ASAP to clarify the order
+          </p>
         </div>
         <form action="">
-          <div>
+          <div class="font-light-noto">
             <label for="">Phone number *</label>
             <div class="order-modal__phone-container">
               <p class="prefix">+381</p>
@@ -111,18 +143,18 @@
               />
             </div>
           </div>
-          <div>
+          <div class="font-light-noto">
             <label for="">Name *</label>
             <input placeholder="name" type="text" />
           </div>
-          <div>
+          <div class="font-light-noto">
             <label for="">Delivery address *</label>
             <input placeholder="address" type="text" />
           </div>
           <div class="order-modal__error">
             <p></p>
           </div>
-          <div class="order-modal__total-cost">
+          <div class="order-modal__total-cost font-light-noto">
             <label for="">Total cost</label>
             <p></p>
           </div>
@@ -134,7 +166,7 @@
     </div>
     <div class="order-modal order-modal__success order-modal_inactive modal">
       <div class="modal-backdrop"></div>
-      <div class="order-modal_container">
+      <div class="order-modal_container modal_container font-light-noto">
         <h3>Your order has been sent for processing</h3>
         <p>We will call you back within 5min</p>
         <button class="order-modal__success-btn btn">Ok</button>
@@ -143,11 +175,11 @@
 
     <div class="fillings-modal fillings-modal_inactive modal">
       <div class="modal-backdrop"></div>
-      <div class="fillings_container  modal_container">
+      <div class="fillings_container modal_container">
         <div class="fillings__close-btn modal__close-btn">
           <img src="assets/png/close.png" alt="" />
         </div>
-        <h3>Choose options</h3>
+        <h3 class="font-light-noto">Choose options</h3>
         <div class="fillings-items"></div>
         <button class="fillings__add-btn btn">Add to Basket</button>
       </div>
@@ -156,8 +188,8 @@
     <!-- INTRO -->
     <div class="intro intro_bg">
       <h2>Discover</h2>
-      <h1>Gu Repio</h1>
-      <p>Making delicious food since 1990</p>
+      <h1 class="font-light-noto">Gu Repio</h1>
+      <p class="font-light-noto">Making delicious food since 1990</p>
       <a href="#menu">
         <button class="btn">Our menu</button>
       </a>
@@ -183,7 +215,7 @@
       <div class="about_container block-header">
         <h3>About</h3>
         <h2>OUR RESTAURANT</h2>
-        <div class="about__description">
+        <div class="description">
           <p>
             We want that the world have more healthy and happy people,
             therefore, our restaurant is collected the most modern trends of
@@ -209,56 +241,45 @@
     </div>
 
     <!-- ANOTHER OFFERS -->
-    <div>
+    <div class="offer">
       <div class="block-header">
         <h3>Our</h3>
         <h2>ANOTHER OFFERS</h2>
       </div>
-      <p>See also our other projects</p>
+      <div class="offer-description">
+        <div class="description">
+          <p>See also our other projects</p>
+        </div>
+      </div>
+
+      <div class="offer-items"></div>
     </div>
 
     <!-- FOOTER -->
     <div class="footer">
-      <div class="contactInfo">
-        <div class="numbers">
-          <div class="numbersItem">
-            <a href="tel: +0000000000" class="phoneNumberStyle">+000 000 000</a>
-            <p class="numberPar">Free for Serbia</p>
+      <div class="contact-info">
+        <p class="font-light-noto">
+          All images used from
+          <a href="https://unsplash.com/">https://unsplash.com/</a>
+        </p>
+        <div class="social-network font-light-noto">
+          <p>My github and linkedin pages</p>
+          <div>
+            <a
+              class="social-network__item"
+              target="_blank"
+              href="https://github.com/Relativelie"
+            >
+              <img src="assets/png/github.png" alt="vk icon" />
+            </a>
+            <a
+              class="social-network__item"
+              target="_blank"
+              href="https://www.linkedin.com/in/gu-khabibullina/"
+            >
+              <img src="assets/png/linkedin.png" alt="vk icon" />
+            </a>
           </div>
-          <div class="numbersItem">
-            <a href="tel: +0000000000" class="phoneNumberStyle">+000 000 000</a>
-            <p class="numberPar">For calls from abroad</p>
-          </div>
-        </div>
-        <div class="socialNetwork">
-          <a class="socialNetworkItem" href="#">
-            <img
-              class="socialNetworkItemImg"
-              src="assets/png/facebook.png"
-              alt="facebook icon"
-            />
-          </a>
-          <a class="socialNetworkItem" href="https://t.me/OnePunchOnBug">
-            <img
-              class="socialNetworkItemImg"
-              src="assets/png/telega.png"
-              alt="telegram icon"
-            />
-          </a>
-          <a class="socialNetworkItem" href="#">
-            <img
-              class="socialNetworkItemImg"
-              src="assets/png/insta.png"
-              alt="insta png"
-            />
-          </a>
-          <a class="socialNetworkItem" href="#">
-            <img
-              class="socialNetworkItemImg"
-              src="assets/png/vk.png"
-              alt="vk icon"
-            />
-          </a>
         </div>
       </div>
     </div>
