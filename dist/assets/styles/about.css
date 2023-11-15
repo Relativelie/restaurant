@@ -1,25 +1,10 @@
 .about {
   height: 40em;
-  position: relative;
 
   background-image: url('../png/olive.png');
-  background-position: left -6% top;
-  background-size: 20%;
+  background-position: left -40% top 80%;
+  background-size: 70%;
   background-repeat: no-repeat;
-}
-
-.about_image-container {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 55em;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: right top 40%;
-  background-image: url('../png/olive_oil.png');
-  filter: brightness(50%);
-  z-index: -1;
 }
 
 .about_container {
@@ -28,7 +13,6 @@
   align-items: center;
   place-content: center;
   height: 100%;
-  padding-left: 5em;
 }
 
 @media all and (max-width: 1250px) {

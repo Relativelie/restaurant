@@ -6,7 +6,7 @@
   border-radius: 6px;
 }
 
-.offer__item_gif {
+.offer__item_img {
   width: 25em;
   height: 20em;
 }
@@ -19,7 +19,7 @@
   padding: 8px;
 
   background-color: rgb(255, 254, 254);
-  transition: top .7s ease-in-out;
+  transition: top 0.7s ease-in-out;
   z-index: 2;
 }
 
@@ -83,7 +83,7 @@
   left: 5%;
   z-index: 3;
   opacity: 0;
-  transition: all .7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 
 .offer__item_cover:hover ~ .offer__item_btn {
@@ -112,4 +112,30 @@
 .offer-description {
   display: flex;
   justify-content: center;
+}
+
+@media all and (max-width: 600px) {
+  .offer__item_cover,
+  .offer__item__description,
+  .offer__item_img,
+  .offer__item {
+    width: 18em;
+  }
+
+  .offer__item_btn,
+  .offer__item_desc-container img {
+    display: none;
+  }
+
+  .offer__item__description > div {
+    height: 5em;
+  }
+
+  .offer__item__description {
+    top: 15em;
+  }
+
+  .offer__item__description {
+    padding: 5px;
+  }
 }

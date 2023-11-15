@@ -36,7 +36,6 @@
   border-radius: 50%;
 }
 
-/* FILLINGS */
 .fillings-modal_inactive {
   display: none !important;
 }
@@ -207,5 +206,14 @@
 @media all and (max-width: 760px) {
   .dish {
     justify-content: center;
+  }
+
+  .fillings_container {
+    height: 35em;
+    width: 20em;
+  }
+
+  .fillings-items {
+    flex-wrap: wrap;
   }
 }
