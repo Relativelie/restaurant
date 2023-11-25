@@ -29,155 +29,6 @@
     <script src="assets/scripts/modal.js" defer></script>
   </head>
   <body>
-    <template id="menu-item-template">
-      <div class="dish-item">
-        <div class="dish-item__about">
-          <div>
-            <h2></h2>
-            <p class="font-light-noto"></p>
-          </div>
-          <div class="dish-item__image-container">
-            <div class="dish-item__image"></div>
-          </div>
-        </div>
-        <div class="dish-item__price">
-          <h3 class="font-light-noto"></h3>
-          <button class="choose-filling-button btn">Choose</button>
-        </div>
-      </div>
-    </template>
-
-    <template id="category-item-template">
-      <div class="category-item">
-        <img src="" alt="" />
-        <p class="font-light-noto"></p>
-      </div>
-    </template>
-
-    <template id="fillings-item-template">
-      <div class="fillings-item_container">
-        <div class="font-noto-sans fillings-item"></div>
-        <h4 class="font-light-noto"></h4>
-        <p class="font-light-noto"></p>
-      </div>
-    </template>
-
-    <template id="empty-basket-template">
-      <div class="basket_empty">
-        <h3 class="font-light-noto">
-          Your basket is empty, please add an item to checkout.
-        </h3>
-      </div>
-    </template>
-
-    <template id="basket-template">
-      <div class="basket__content"></div>
-      <hr />
-      <div class="basket__total-cost">
-        <p class="font-light-noto">Total cost</p>
-        <p class="font-light-noto"></p>
-      </div>
-      <button class="btn basket__order-btn">Order</button>
-    </template>
-
-    <template id="basket-category-template">
-      <div class="basket__category">
-        <h3 class="font-light-noto"></h3>
-      </div>
-    </template>
-
-    <template id="basket-category-item-template">
-      <div class="basket__category__item font-light-noto">
-        <p></p>
-        <p></p>
-      </div>
-    </template>
-
-    <template id="offer-item-template">
-      <div class="offer__item">
-        <a class="offer__item_cover" href="" target="_blank"></a>
-        <img class="offer__item_img" src="" alt="project" />
-        <button class="btn offer__item_btn">Go to page</button>
-        <div class="offer__item__description">
-          <div>
-            <div class="offer__item_desc-container">
-              <div>
-                <h2></h2>
-                <h3></h3>
-              </div>
-              <img src="" alt="nutrients" />
-            </div>
-          </div>
-
-          <div class="offer__item__desc-text"></div>
-        </div>
-      </div>
-    </template>
-    <template id="offer-item-desc-template">
-      <div class="offer-item-description">
-        <h5></h5>
-        <p></p>
-      </div>
-    </template>
-
-    <uc-modal class="order-modal order-modal__form">
-      <div class="order-modal_container">
-        <div>
-          <h3 class="font-light-noto">Order</h3>
-          <p class="font-light-noto">
-            We'll call you back ASAP to clarify the order
-          </p>
-        </div>
-        <form action="">
-          <div class="font-light-noto">
-            <label for="">Phone number *</label>
-            <div class="order-modal__phone-container">
-              <p class="prefix">+381</p>
-              <input
-                class="order-modal__form-phone"
-                placeholder="123456789"
-                type="number"
-              />
-            </div>
-          </div>
-          <div class="font-light-noto">
-            <label for="">Name *</label>
-            <input placeholder="name" type="text" />
-          </div>
-          <div class="font-light-noto">
-            <label for="">Delivery address *</label>
-            <input placeholder="address" type="text" />
-          </div>
-          <div class="order-modal__error">
-            <p></p>
-          </div>
-          <div class="order-modal__total-cost font-light-noto">
-            <label for="">Total cost</label>
-            <p></p>
-          </div>
-        </form>
-        <div class="order-modal__send-btn">
-          <button class="btn">Send</button>
-        </div>
-      </div>
-    </uc-modal>
-
-    <uc-modal class="order-modal order-modal__success">
-      <div class="order-modal_container font-light-noto">
-        <h3>Your order has been sent for processing</h3>
-        <p>We will call you back within 5min</p>
-        <button class="order-modal__success-btn btn">Ok</button>
-      </div>
-    </uc-modal>
-
-    <uc-modal class="fillings-modal">
-      <h3 class="font-light-noto">Choose options</h3>
-      <div class="fillings-items"></div>
-      <div class="fillings__btn_container">
-        <button class="fillings__add-btn btn">Add to Basket</button>
-      </div>
-    </uc-modal>
-
     <!-- INTRO -->
     <div class="intro intro_bg">
       <h2>Discover</h2>
@@ -275,5 +126,156 @@
         </div>
       </div>
     </div>
+
+    <!-- MODALS -->
+    <uc-modal class="order-modal order-modal__form">
+      <div class="order-modal_container">
+        <div>
+          <h3 class="font-light-noto">Order</h3>
+          <p class="font-light-noto">
+            We'll call you back ASAP to clarify the order
+          </p>
+        </div>
+        <form action="">
+          <div class="font-light-noto">
+            <label for="">Phone number *</label>
+            <div class="order-modal__phone-container">
+              <p class="prefix">+381</p>
+              <input
+                class="order-modal__form-phone"
+                placeholder="123456789"
+                type="number"
+              />
+            </div>
+          </div>
+          <div class="font-light-noto">
+            <label for="">Name *</label>
+            <input placeholder="name" type="text" />
+          </div>
+          <div class="font-light-noto">
+            <label for="">Delivery address *</label>
+            <input placeholder="address" type="text" />
+          </div>
+          <div class="order-modal__error">
+            <p></p>
+          </div>
+          <div class="order-modal__total-cost font-light-noto">
+            <label for="">Total cost</label>
+            <p></p>
+          </div>
+        </form>
+        <div class="order-modal__send-btn">
+          <button class="btn">Send</button>
+        </div>
+      </div>
+    </uc-modal>
+
+    <uc-modal class="order-modal order-modal__success">
+      <div class="order-modal_container font-light-noto">
+        <h3>Your order has been sent for processing</h3>
+        <p>We will call you back within 5min</p>
+        <button class="order-modal__success-btn btn">Ok</button>
+      </div>
+    </uc-modal>
+
+    <uc-modal class="fillings-modal">
+      <h3 class="font-light-noto">Choose options</h3>
+      <div class="fillings-items"></div>
+      <div class="fillings__btn_container">
+        <button class="fillings__add-btn btn">Add to Basket</button>
+      </div>
+    </uc-modal>
+
+    <!-- TEMPLATES -->
+    <template id="menu-item-template">
+      <div class="dish-item">
+        <div class="dish-item__about">
+          <div>
+            <h2></h2>
+            <p class="font-light-noto"></p>
+          </div>
+          <div class="dish-item__image-container">
+            <div class="dish-item__image"></div>
+          </div>
+        </div>
+        <div class="dish-item__price">
+          <h3 class="font-light-noto"></h3>
+          <button class="choose-filling-button btn">Choose</button>
+        </div>
+      </div>
+    </template>
+
+    <template id="category-item-template">
+      <div class="category-item">
+        <img src="" alt="" />
+        <p class="font-light-noto"></p>
+      </div>
+    </template>
+
+    <template id="fillings-item-template">
+      <div class="fillings-item_container">
+        <div class="font-noto-sans fillings-item"></div>
+        <h4 class="font-light-noto"></h4>
+        <p class="font-light-noto"></p>
+      </div>
+    </template>
+
+    <template id="empty-basket-template">
+      <div class="basket_empty">
+        <h3 class="font-light-noto">
+          Your basket is empty, please add an item to checkout.
+        </h3>
+      </div>
+    </template>
+
+    <template id="basket-template">
+      <div class="basket__content"></div>
+      <hr />
+      <div class="basket__total-cost">
+        <p class="font-light-noto">Total cost</p>
+        <p class="font-light-noto"></p>
+      </div>
+      <button class="btn basket__order-btn">Order</button>
+    </template>
+
+    <template id="basket-category-template">
+      <div class="basket__category">
+        <h3 class="font-light-noto"></h3>
+      </div>
+    </template>
+
+    <template id="basket-category-item-template">
+      <div class="basket__category__item font-light-noto">
+        <p></p>
+        <p></p>
+      </div>
+    </template>
+
+    <template id="offer-item-template">
+      <div class="offer__item">
+        <a class="offer__item_cover" href="" target="_blank"></a>
+        <img class="offer__item_img" src="" alt="project" />
+        <button class="btn offer__item_btn">Go to page</button>
+        <div class="offer__item__description">
+          <div>
+            <div class="offer__item_desc-container">
+              <div>
+                <h2></h2>
+                <h3></h3>
+              </div>
+              <img src="" alt="nutrients" />
+            </div>
+          </div>
+          <div class="offer__item__desc-text"></div>
+        </div>
+      </div>
+    </template>
+
+    <template id="offer-item-desc-template">
+      <div class="offer-item-description">
+        <h5></h5>
+        <p></p>
+      </div>
+    </template>
   </body>
 </html>
