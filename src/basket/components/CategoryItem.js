@@ -1,4 +1,4 @@
-import Component from '../../common-components/Component';
+import Component from '../../components/Component';
 
 class CategoryItem extends Component {
   constructor(item) {

@@ -1,4 +1,4 @@
-import Component from '../../../common-components/Component';
+import Component from '../../../components/Component';
 import FillingItemEntity from '../../models/FillingItemEntity';
 
 class FillingsItem extends Component {

@@ -1,15 +1,8 @@
-.order-modal_inactive {
-  display: none;
-}
-
 .order-modal_container {
-  width: 30em;
-  height: 20em;
   display: flex;
   flex-direction: column;
   gap: 12px;
   align-items: center;
-  justify-content: center;
 }
 
 .order-modal h3 {

@@ -1,4 +1,4 @@
-import Component from '../../common-components/Component';
+import Component from '../../components/Component';
 import CategoryItemEntity from '../models/CategoryItemEntity';
 
 class CategoryItem extends Component {

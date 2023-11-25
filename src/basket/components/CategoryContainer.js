@@ -1,4 +1,4 @@
-import Component from '../../common-components/Component';
+import Component from '../../components/Component';
 import toCapitalize from '../../utils/capitalize';
 import CategoryItem from './CategoryItem';
 

@@ -1,4 +1,4 @@
-import Component from '../../common-components/Component';
+import Component from '../../components/Component';
 import OfferEntity from '../models/OfferEntity';
 import DescriptionItem from './DescriptionItem';
 

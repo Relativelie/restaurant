@@ -1,4 +1,4 @@
-import Component from '../common-components/Component';
+import Component from '../components/Component';
 import Order from '../order/Order';
 import CategoryContainer from './components/CategoryContainer';
 import EmptyBasket from './components/EmptyBasket';
@@ -14,7 +14,6 @@ class Basket extends Component {
 
     this.basketPopup = document.querySelector('.basket__popup');
     this.basketButton = document.querySelector('.basket-button');
-
     this.orderingItems = new BasketEntity();
   }
 
@@ -36,7 +35,9 @@ class Basket extends Component {
       this.switchBasketPopup();
     });
 
-    const basketBackdrop = document.querySelector('.basket__popup .modal-backdrop');
+    const basketBackdrop = document.querySelector(
+      '.basket__popup .basket_backdrop',
+    );
     basketBackdrop.addEventListener('click', () => {
       this.switchBasketPopup();
     });
@@ -71,8 +72,14 @@ class Basket extends Component {
 
   onClickToOrder() {
     this.closeBasketPopup();
-    const order = new Order(this.totalCost, this.orderingItems, this.onClearBasket.bind(this));
+    const order = new Order(
+      this.totalCost,
+      this.onClearBasket.bind(this),
+    );
     order.render();
+
+    const orderModal = document.querySelector('.order-modal__form');
+    orderModal.open();
   }
 
   openBasketPopup() {

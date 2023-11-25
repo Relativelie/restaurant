@@ -25,7 +25,8 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Nunito&family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <script src="assets/scripts/main.js" defer></script>
+    <script src="assets/scripts/app.js" defer></script>
+    <script src="assets/scripts/modal.js" defer></script>
   </head>
   <body>
     <template id="menu-item-template">
@@ -119,12 +120,8 @@
       </div>
     </template>
 
-    <div class="order-modal order-modal__form order-modal_inactive modal">
-      <div class="modal-backdrop"></div>
-      <div class="order-modal_container modal_container">
-        <div class="order-modal__close-btn modal__close-btn">
-          <img src="assets/png/close.png" alt="close" />
-        </div>
+    <uc-modal class="order-modal order-modal__form">
+      <div class="order-modal_container">
         <div>
           <h3 class="font-light-noto">Order</h3>
           <p class="font-light-noto">
@@ -163,27 +160,23 @@
           <button class="btn">Send</button>
         </div>
       </div>
-    </div>
-    <div class="order-modal order-modal__success order-modal_inactive modal">
-      <div class="modal-backdrop"></div>
-      <div class="order-modal_container modal_container font-light-noto">
+    </uc-modal>
+
+    <uc-modal class="order-modal order-modal__success">
+      <div class="order-modal_container font-light-noto">
         <h3>Your order has been sent for processing</h3>
         <p>We will call you back within 5min</p>
         <button class="order-modal__success-btn btn">Ok</button>
       </div>
-    </div>
+    </uc-modal>
 
-    <div class="fillings-modal fillings-modal_inactive modal">
-      <div class="modal-backdrop"></div>
-      <div class="fillings_container modal_container">
-        <div class="fillings__close-btn modal__close-btn">
-          <img src="assets/png/close.png" alt="" />
-        </div>
-        <h3 class="font-light-noto">Choose options</h3>
-        <div class="fillings-items"></div>
+    <uc-modal class="fillings-modal">
+      <h3 class="font-light-noto">Choose options</h3>
+      <div class="fillings-items"></div>
+      <div class="fillings__btn_container">
         <button class="fillings__add-btn btn">Add to Basket</button>
       </div>
-    </div>
+    </uc-modal>
 
     <!-- INTRO -->
     <div class="intro intro_bg">
@@ -205,7 +198,7 @@
         <div class="basket__count"></div>
       </div>
       <div class="basket__popup basket_inactive">
-        <div class="modal-backdrop"></div>
+        <div class="basket_backdrop"></div>
         <div class="basket__popup_container"></div>
       </div>
     </div>

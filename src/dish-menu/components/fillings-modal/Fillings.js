@@ -1,8 +1,6 @@
 import FillingsItem from './FillingsItem';
 
 class FillingsModal {
-  #inactiveModalClass = 'fillings-modal_inactive';
-
   constructor(fillings, addToBasket, onSelectFilling) {
     this.fillingsModal = document.querySelector('.fillings-modal');
 
@@ -28,30 +26,23 @@ class FillingsModal {
   }
 
   onAddListeners() {
-    const closeButton = document.querySelector('.fillings__close-btn');
-    closeButton.addEventListener('click', () => {
-      this.onCloseFillingsModal();
-    });
-
-    const fillingsBackdrop = document.querySelector('.fillings-modal .modal-backdrop');
-    fillingsBackdrop.addEventListener('click', () => {
-      this.onCloseFillingsModal();
-    });
-
-    const addToBasketButton = document.querySelector('.fillings__add-btn');
-    addToBasketButton.addEventListener('click', () => {
+    const addToBasketBtn =
+      this.fillingsModal.querySelector('.fillings__add-btn');
+    addToBasketBtn.addEventListener('click', () => {
       this.addToBasket();
       this.onCloseFillingsModal();
     });
   }
 
   onCloseFillingsModal() {
-    this.fillingsModal.classList.add(this.#inactiveModalClass);
+    this.fillingsModal.hide();
     this.onSelectFilling(null);
   }
 
   onOpenFillingsModal() {
-    this.fillingsModal.classList.remove(this.#inactiveModalClass);
+    if (!this.fillingsModal.isOpen) {
+      this.fillingsModal.open();
+    }
   }
 }
 

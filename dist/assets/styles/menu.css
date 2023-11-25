@@ -40,15 +40,6 @@
   display: none !important;
 }
 
-.fillings_container {
-  width: 35em;
-  height: 20em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 1;
-}
-
 .fillings-item {
   width: 7em;
   height: 7em;
@@ -108,6 +99,11 @@
 
 .dish-item h3 {
   font-size: 20px;
+}
+
+.fillings__btn_container {
+  display: flex;
+  justify-content: center;
 }
 
 .fillings-modal h3 {
@@ -206,11 +202,6 @@
 @media all and (max-width: 760px) {
   .dish {
     justify-content: center;
-  }
-
-  .fillings_container {
-    height: 35em;
-    width: 20em;
   }
 
   .fillings-items {
