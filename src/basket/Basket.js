@@ -33,7 +33,7 @@ class Basket extends Component {
     return sum;
   }
 
-  render() {
+  create() {
     this.basketButton.addEventListener('click', () => {
       this._switchBasketPopup();
     });
