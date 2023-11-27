@@ -12,7 +12,7 @@ class Modal extends HTMLElement {
           width: 100%;
           height: 100vh;
           background: rgba(0,0,0,0.75);
-          z-index: 10;
+          z-index: 40;
           opacity: 0;
           pointer-events: none;
       }
@@ -30,8 +30,8 @@ class Modal extends HTMLElement {
       #modal {
           position: fixed;
           top: 10vh;
-          left: 25%;
-          width: 60%;
+          left: 33%;
+          width: 33%;
           z-index: 100;
           background: white;
           border-radius: 3px;
@@ -73,9 +73,14 @@ class Modal extends HTMLElement {
           width: 40px;
       }
 
-      @media all and (max-width: 580px) {
+      @media all and (max-width: 1220px) {
         #modal {
-          top: 10vh;
+          left: 25%;
+          width: 50%;
+        }
+
+      @media all and (max-width: 800px) {
+        #modal {
           left: 0;
           right: 0;
           width: 100%;

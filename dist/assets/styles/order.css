@@ -37,7 +37,7 @@
 .order-modal_container form > div {
   display: flex;
   justify-content: space-between;
-  width: 350px;
+  width: 25em;
   padding: 5px;
   align-items: center;
 }
