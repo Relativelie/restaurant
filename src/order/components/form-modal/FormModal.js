@@ -11,30 +11,30 @@ class FormModal {
 
   render() {
     this.#formModal.open();
-    this.addTotalCost();
+    this._addTotalCost();
 
     const phoneInput = document.querySelector('.order-modal__form-phone');
-    phoneInput.addEventListener('keyup', (e) => this.onChangePhone(e.target.value));
+    phoneInput.addEventListener('keyup', (e) => this._onChangePhone(e.target.value));
 
     const orderBtn = document.querySelector('.order-modal__send-btn');
-    orderBtn.addEventListener('click', this.onClickSendBtn.bind(this));
+    orderBtn.addEventListener('click', this._onClickSendBtn.bind(this));
 
-    this.#formModal.addEventListener('hide', this.resetForm.bind(this));
+    this.#formModal.addEventListener('hide', this._resetForm.bind(this));
   }
 
-  addTotalCost() {
+  _addTotalCost() {
     this.#formModal.querySelector(
       '.order-modal__total-cost p',
     ).textContent = `$${this.totalCost}`;
   }
 
-  onClickSendBtn() {
+  _onClickSendBtn() {
     if (!this.validation.isValidFormValues()) return;
     this.#formModal.hide();
     this.openSuccessModal();
   }
 
-  resetForm() {
+  _resetForm() {
     const form = document.querySelector('.order-modal__form form');
     form.reset();
 
@@ -42,7 +42,7 @@ class FormModal {
     this.validation.removeAllErrorClasses(inputs);
   }
 
-  onChangePhone(value) {
+  _onChangePhone(value) {
     if (value.length < 10) return;
     value = value.slice(0, 9);
   }

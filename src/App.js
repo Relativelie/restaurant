@@ -5,7 +5,7 @@ import Offers from './offers/Offers';
 class App {
   static init() {
     const basket = new Basket();
-    basket.create();
+    basket.render();
 
     const dishMenu = new DishMenu(basket.addItem.bind(basket));
     dishMenu.renderCategory();

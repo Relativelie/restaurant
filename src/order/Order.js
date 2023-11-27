@@ -1,5 +1,6 @@
 import FormModal from './components/form-modal/FormModal';
-import SuccessModal from './components/SuccessModal';
+
+const loadSuccessModal = () => import('./components/SuccessModal');
 
 class Order {
   constructor(totalCost, clearBasket) {
@@ -8,13 +9,19 @@ class Order {
   }
 
   render() {
-    const formModal = new FormModal(this.openSuccessModal.bind(this), this.totalCost);
+    const formModal = new FormModal(
+      this._openSuccessModal.bind(this),
+      this.totalCost,
+    );
     formModal.render();
   }
 
-  openSuccessModal() {
-    const successModal = new SuccessModal(this.clearBasket.bind(this));
-    successModal.render();
+  _openSuccessModal() {
+    loadSuccessModal().then((module) => {
+      const SuccessModal = module.default;
+      const successModal = new SuccessModal(this.clearBasket.bind(this));
+      successModal.render();
+    });
   }
 }
 

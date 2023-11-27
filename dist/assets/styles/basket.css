@@ -51,23 +51,6 @@
   }
 }
 
-.basket__count {
-  width: 25px;
-  height: 25px;
-
-  position: fixed;
-  top: 10px;
-  right: 15px;
-
-  display: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-
-  background-color: rgb(207, 141, 79);
-  z-index: 1;
-}
-
 .basket__popup {
   position: relative;
 }
@@ -142,6 +125,7 @@
 .basket__category__item {
   display: flex;
   justify-content: space-between;
+  padding-right: 1em;
 }
 
 .basket__order-btn {

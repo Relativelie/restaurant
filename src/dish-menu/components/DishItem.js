@@ -1,4 +1,4 @@
-import Component from '../../components/Component';
+import Component from '@commonComponents/Component';
 import DishItemEntity from '../models/MenuItemEntity';
 
 class DishItem extends Component {

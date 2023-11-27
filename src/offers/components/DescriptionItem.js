@@ -1,4 +1,4 @@
-import Component from '../../components/Component';
+import Component from '@commonComponents/Component';
 import DescriptionEntity from '../models/DescriptionEntity';
 
 class DescriptionItem extends Component {

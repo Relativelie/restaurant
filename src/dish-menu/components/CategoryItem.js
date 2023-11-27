@@ -1,4 +1,4 @@
-import Component from '../../components/Component';
+import Component from '@commonComponents/Component';
 import CategoryItemEntity from '../models/CategoryItemEntity';
 
 class CategoryItem extends Component {
@@ -20,22 +20,25 @@ class CategoryItem extends Component {
     itemBody.querySelector('.category-item').dataset.category = dataAttribute;
 
     const isSelected = this.selectedCategory === dataAttribute;
-    this.addSelectedClass(isSelected, itemBody.querySelector('.category-item'));
+    this._addSelectedClass(
+      isSelected,
+      itemBody.querySelector('.category-item'),
+    );
 
     itemBody
       .querySelector('.category-item')
-      .addEventListener('click', this.onClickCategoryItem.bind(this));
+      .addEventListener('click', this._onClickCategoryItem.bind(this));
 
     return itemBody;
   }
 
-  onClickCategoryItem(e) {
-    this.deselectPrevCategory();
-    this.addSelectedClass(true, e.currentTarget);
+  _onClickCategoryItem(e) {
+    this._deselectPrevCategory();
+    this._addSelectedClass(true, e.currentTarget);
     this.onClick(e);
   }
 
-  deselectPrevCategory() {
+  _deselectPrevCategory() {
     const categoriesContainer = document.querySelector('.menu__categories');
     const selectedCategory = categoriesContainer.querySelector(
       `.${this.#selectedClassName}`,
@@ -45,7 +48,7 @@ class CategoryItem extends Component {
     }
   }
 
-  addSelectedClass(isSelected, selector) {
+  _addSelectedClass(isSelected, selector) {
     if (!isSelected) return;
     selector.classList.add(this.#selectedClassName);
   }

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/styles/about.css" />
     <link rel="stylesheet" href="./assets/styles/menu.css" />
     <link rel="stylesheet" href="./assets/styles/common.css" />
-    <link rel="stylesheet" href="./assets/styles/order-modal.css" />
+    <link rel="stylesheet" href="./assets/styles/order.css" />
     <link rel="stylesheet" href="./assets/styles/offers.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,77 +29,78 @@
     <script src="assets/scripts/modal.js" defer></script>
   </head>
   <body>
-    <!-- INTRO -->
-    <div class="intro intro_bg">
-      <h2>Discover</h2>
-      <h1 class="font-light-noto">Gu Repio</h1>
-      <p class="font-light-noto">Making delicious food since 1990</p>
-      <a href="#menu">
-        <button class="btn">Our menu</button>
-      </a>
-    </div>
-
     <!-- HEADER -->
-    <div class="header">
+    <header id="header">
       <h4>Gu Repio</h4>
 
       <!-- Basket -->
       <div class="basket-button basket-animation remove-animation">
-        <img src="assets/png/trolley.png" alt="" />
-        <div class="basket__count"></div>
+        <img src="assets/png/trolley.png" alt="basket" />
       </div>
       <div class="basket__popup basket_inactive">
         <div class="basket_backdrop"></div>
         <div class="basket__popup_container"></div>
       </div>
-    </div>
+    </header>
 
-    <!-- ABOUT US -->
-    <div class="about">
-      <div class="about_container block-header">
-        <h3>About</h3>
-        <h2>OUR RESTAURANT</h2>
-        <div class="description">
-          <p>
-            We want that the world have more healthy and happy people,
-            therefore, our restaurant is collected the most modern trends of
-            restaurants
-          </p>
+    <main>
+      <!-- INTRO -->
+      <section id="intro" class="intro_bg">
+        <h2>Discover</h2>
+        <h1 class="font-light-noto">Gu Repio</h1>
+        <p class="font-light-noto">Making delicious food since 1990</p>
+        <a href="#menu">
+          <button class="btn">Our menu</button>
+        </a>
+      </section>
+
+      <!-- ABOUT US -->
+      <section id="about">
+        <div class="about_container block-header">
+          <h3>About</h3>
+          <h2>OUR RESTAURANT</h2>
+          <div class="description">
+            <p>
+              We want that the world have more healthy and happy people,
+              therefore, our restaurant is collected the most modern trends of
+              restaurants
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- MENU -->
-    <div id="menu">
-      <div class="block-header">
-        <h3>Our</h3>
-        <h2>MENU</h2>
-      </div>
-      <div class="menu__categories_container">
-        <div class="menu__categories"></div>
-      </div>
-      <div class="menu-content">
-        <div class="dish"></div>
-      </div>
-    </div>
-
-    <!-- ANOTHER OFFERS -->
-    <div class="offer">
-      <div class="block-header">
-        <h3>Our</h3>
-        <h2>ANOTHER OFFERS</h2>
-      </div>
-      <div class="offer-description">
-        <div class="description">
-          <p>See also our other projects</p>
+      <!-- MENU -->
+      <section id="menu">
+        <div class="block-header">
+          <h3>Our</h3>
+          <h2>MENU</h2>
         </div>
-      </div>
+        <div class="menu__categories_container">
+          <div class="menu__categories"></div>
+        </div>
+        <div class="menu-content">
+          <div class="dish"></div>
+        </div>
+      </section>
 
-      <div class="offer-items"></div>
-    </div>
+      <!-- ANOTHER OFFERS -->
+      <section>
+        <div class="block-header">
+          <h3>Our</h3>
+          <h2>ANOTHER OFFERS</h2>
+        </div>
+        <div class="offer-description">
+          <div class="description">
+            <p>See also our other projects</p>
+          </div>
+        </div>
+
+        <div class="offer-items"></div>
+      </section>
+    </main>
 
     <!-- FOOTER -->
-    <div class="footer">
+    <footer id="footer">
       <div class="contact-info">
         <p class="font-light-noto">
           All images used from
@@ -113,22 +114,22 @@
               target="_blank"
               href="https://github.com/Relativelie"
             >
-              <img src="assets/png/github.png" alt="vk icon" />
+              <img src="assets/png/github.png" alt="github" />
             </a>
             <a
               class="social-network__item"
               target="_blank"
               href="https://www.linkedin.com/in/gu-khabibullina/"
             >
-              <img src="assets/png/linkedin.png" alt="vk icon" />
+              <img src="assets/png/linkedin.png" alt="linkedin" />
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
 
     <!-- MODALS -->
-    <uc-modal class="order-modal order-modal__form">
+    <fc-modal class="order-modal order-modal__form">
       <div class="order-modal_container">
         <div>
           <h3 class="font-light-noto">Order</h3>
@@ -138,10 +139,11 @@
         </div>
         <form action="">
           <div class="font-light-noto">
-            <label for="">Phone number *</label>
+            <label for="phone">Phone number *</label>
             <div class="order-modal__phone-container">
               <p class="prefix">+381</p>
               <input
+                id="phone"
                 class="order-modal__form-phone"
                 placeholder="123456789"
                 type="number"
@@ -149,42 +151,42 @@
             </div>
           </div>
           <div class="font-light-noto">
-            <label for="">Name *</label>
-            <input placeholder="name" type="text" />
+            <label for="name">Name *</label>
+            <input id="name" placeholder="name" type="text" />
           </div>
           <div class="font-light-noto">
-            <label for="">Delivery address *</label>
-            <input placeholder="address" type="text" />
+            <label for="address">Delivery address *</label>
+            <input id="address" placeholder="address" type="text" />
           </div>
           <div class="order-modal__error">
             <p></p>
           </div>
           <div class="order-modal__total-cost font-light-noto">
-            <label for="">Total cost</label>
-            <p></p>
+            <label>Total cost</label>
+            <p class="font-light-noto"></p>
           </div>
         </form>
         <div class="order-modal__send-btn">
           <button class="btn">Send</button>
         </div>
       </div>
-    </uc-modal>
+    </fc-modal>
 
-    <uc-modal class="order-modal order-modal__success">
+    <fc-modal class="order-modal order-modal__success">
       <div class="order-modal_container font-light-noto">
         <h3>Your order has been sent for processing</h3>
         <p>We will call you back within 5min</p>
         <button class="order-modal__success-btn btn">Ok</button>
       </div>
-    </uc-modal>
+    </fc-modal>
 
-    <uc-modal class="fillings-modal">
+    <fc-modal class="fillings-modal">
       <h3 class="font-light-noto">Choose options</h3>
       <div class="fillings-items"></div>
       <div class="fillings__btn_container">
         <button class="fillings__add-btn btn">Add to Basket</button>
       </div>
-    </uc-modal>
+    </fc-modal>
 
     <!-- TEMPLATES -->
     <template id="menu-item-template">
@@ -207,7 +209,7 @@
 
     <template id="category-item-template">
       <div class="category-item">
-        <img src="" alt="" />
+        <img src="" alt="category" />
         <p class="font-light-noto"></p>
       </div>
     </template>

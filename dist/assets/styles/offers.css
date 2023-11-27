@@ -63,6 +63,10 @@
   font-family: 'Nunito', sans-serif;
 }
 
+.offer__item h3 {
+  font-weight: 400;
+}
+
 .offer__item__desc-text p {
   font-size: 12px;
 }

@@ -31,7 +31,7 @@ class Modal extends HTMLElement {
           position: fixed;
           top: 10vh;
           left: 25%;
-          width: 50%;
+          width: 60%;
           z-index: 100;
           background: white;
           border-radius: 3px;
@@ -46,7 +46,7 @@ class Modal extends HTMLElement {
           backdrop-filter: blur(3px);
       }
 
-      #main {
+      #modal__main {
           padding: 1rem;
       }
 
@@ -90,7 +90,7 @@ class Modal extends HTMLElement {
           <img src="assets/png/close.png" alt="close button" />
         </button>
       </div>
-      <section id="main">
+      <section id="modal__main">
           <slot></slot>
       </section>
     </div>
@@ -100,6 +100,10 @@ class Modal extends HTMLElement {
     const closeButton = this.shadowRoot.querySelector('#close-btn');
     backdrop.addEventListener('click', this.hide.bind(this));
     closeButton.addEventListener('click', this.hide.bind(this));
+    document.addEventListener(
+      'keydown',
+      (e) => e.key === 'Escape' && this.hasAttribute('opened') && this.hide(e),
+    );
   }
 
   attributeChangedCallback() {
@@ -132,4 +136,4 @@ class Modal extends HTMLElement {
   }
 }
 
-customElements.define('uc-modal', Modal);
+customElements.define('fc-modal', Modal);

@@ -1,9 +1,10 @@
-import Component from '../components/Component';
-import Order from '../order/Order';
-import CategoryContainer from './components/CategoryContainer';
-import EmptyBasket from './components/EmptyBasket';
+import Component from '@commonComponents/Component';
 import BasketEntity from './models/BasketEntity';
-import BasketItemEntity from './models/BasketItemEntity';
+
+const loadEmptyBasket = () => import('./components/EmptyBasket');
+const loadOrderComp = () => import('../order/Order');
+const loadCategoryContainer = () => import('./components/CategoryContainer');
+const loadBasketItemEntity = () => import('./models/BasketItemEntity');
 
 class Basket extends Component {
   #inactiveClass = 'basket_inactive';
@@ -30,16 +31,14 @@ class Basket extends Component {
     return sum;
   }
 
-  create() {
+  render() {
     this.basketButton.addEventListener('click', () => {
-      this.switchBasketPopup();
+      this._switchBasketPopup();
     });
 
-    const basketBackdrop = document.querySelector(
-      '.basket__popup .basket_backdrop',
-    );
+    const basketBackdrop = document.querySelector('.basket_backdrop');
     basketBackdrop.addEventListener('click', () => {
-      this.switchBasketPopup();
+      this._switchBasketPopup();
     });
   }
 
@@ -52,11 +51,16 @@ class Basket extends Component {
 
     Object.keys(this.orderingItems).map((key) => {
       if (this.orderingItems.isEmptyCategory(key)) return;
-
-      const body = new CategoryContainer(key, this.orderingItems[key]).create();
-      basketContainer
-        .querySelector('.basket__content')
-        .appendChild(body, basketBody.firstChild);
+      loadCategoryContainer().then((module) => {
+        const CategoryContainer = module.default;
+        const body = new CategoryContainer(
+          key,
+          this.orderingItems[key],
+        ).create();
+        basketContainer
+          .querySelector('.basket__content')
+          .appendChild(body, basketBody.firstChild);
+      });
     });
 
     const totalCostSelector = basketContainer.querySelectorAll(
@@ -66,55 +70,61 @@ class Basket extends Component {
 
     const orderBtn = document.querySelector('.basket__order-btn');
     orderBtn.addEventListener('click', () => {
-      this.onClickToOrder(this);
+      this._onClickToOrder(this);
     });
   }
 
-  onClickToOrder() {
-    this.closeBasketPopup();
-    const order = new Order(
-      this.totalCost,
-      this.onClearBasket.bind(this),
-    );
-    order.render();
+  _onClickToOrder() {
+    this._closeBasketPopup();
+    loadOrderComp().then((module) => {
+      const Order = module.default;
+      const order = new Order(this.totalCost, this._onClearBasket.bind(this));
+      order.render();
+    });
 
     const orderModal = document.querySelector('.order-modal__form');
     orderModal.open();
   }
 
-  openBasketPopup() {
+  _openBasketPopup() {
     this.basketButton.querySelector('img').src = '../assets/png/close.png';
     this.basketPopup.classList.remove(this.#inactiveClass);
     document.querySelector('body').style.overflow = 'hidden';
 
     if (this.orderingItems.isEmptyBasket) {
-      new EmptyBasket().render();
+      loadEmptyBasket().then((module) => {
+        const EmptyBasket = module.default;
+        new EmptyBasket().render();
+      });
       return;
     }
 
     this.renderBasketItems(this);
   }
 
-  closeBasketPopup() {
+  _closeBasketPopup() {
     this.basketButton.querySelector('img').src = '../assets/png/trolley.png';
     this.basketPopup.classList.add(this.#inactiveClass);
     document.querySelector('body').style.overflow = 'auto';
   }
 
-  switchBasketPopup() {
+  _switchBasketPopup() {
     if (this.isActivePopup) {
-      this.closeBasketPopup();
+      this._closeBasketPopup();
       return;
     }
-    this.openBasketPopup();
+    this._openBasketPopup();
   }
 
   addItem(category, dish, filling) {
-    this.orderingItems.addItem(category, new BasketItemEntity(dish, filling));
-    this.toAnimateBasketButton();
+    loadBasketItemEntity().then((module) => {
+      const BasketItemEntity = module.default;
+      this.orderingItems.addItem(category, new BasketItemEntity(dish, filling));
+      this._toAnimateBasketButton();
+    });
   }
 
-  toAnimateBasketButton() {
+  _toAnimateBasketButton() {
     const basketBtn = document.querySelector('.basket-button');
 
     basketBtn.classList.remove(this.#removeAnimationClass);
@@ -124,7 +134,7 @@ class Basket extends Component {
     }, 1000);
   }
 
-  onClearBasket() {
+  _onClearBasket() {
     this.orderingItems.clearBasket();
     this.renderBasketItems(this);
   }

@@ -1,4 +1,4 @@
-import Component from '../../components/Component';
+import Component from '@commonComponents/Component';
 
 class EmptyBasket extends Component {
   constructor() {

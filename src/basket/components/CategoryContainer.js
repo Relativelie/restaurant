@@ -1,5 +1,5 @@
-import Component from '../../components/Component';
-import toCapitalize from '../../utils/capitalize';
+import Component from '@commonComponents/Component';
+import toCapitalize from '@utils/capitalize';
 import CategoryItem from './CategoryItem';
 
 class CategoryContainer extends Component {

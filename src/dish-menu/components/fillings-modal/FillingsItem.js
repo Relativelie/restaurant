@@ -1,4 +1,4 @@
-import Component from '../../../components/Component';
+import Component from '@commonComponents/Component';
 import FillingItemEntity from '../../models/FillingItemEntity';
 
 class FillingsItem extends Component {
@@ -23,22 +23,22 @@ class FillingsItem extends Component {
 
     const filling = itemBody.querySelector('.fillings-item_container');
     filling.addEventListener('click', (e) => {
-      this.onClickFilling(e, filling);
+      this._onClickFilling(e, filling);
     });
 
     return itemBody;
   }
 
-  onClickFilling(e, fillingsItem) {
-    if (this.hasSelectedFilling(e)) {
-      this.unselectFilling();
+  _onClickFilling(e, fillingsItem) {
+    if (this._hasSelectedFilling(e)) {
+      this._unselectFilling();
       return;
     }
-    this.unselectFilling(this);
+    this._unselectFilling(this);
     this.selectFilling(fillingsItem);
   }
 
-  hasSelectedFilling(e) {
+  _hasSelectedFilling(e) {
     e.currentTarget.querySelector(`.${this.#selectedClassName}`);
   }
 
@@ -49,7 +49,7 @@ class FillingsItem extends Component {
     this.onSelectFilling(this.filling);
   }
 
-  unselectFilling() {
+  _unselectFilling() {
     const selectedItem = document.querySelector(`.${this.#selectedClassName}`);
     if (selectedItem) {
       selectedItem.classList.remove(this.#selectedClassName);

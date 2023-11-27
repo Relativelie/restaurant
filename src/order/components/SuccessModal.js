@@ -8,10 +8,10 @@ class SuccessModal {
   render() {
     this.#successModal.open();
     const successOkBtn = document.querySelector('.order-modal__success-btn');
-    successOkBtn.addEventListener('click', this.closeSuccessStep.bind(this));
+    successOkBtn.addEventListener('click', this._closeSuccessStep.bind(this));
   }
 
-  closeSuccessStep() {
+  _closeSuccessStep() {
     this.#successModal.hide();
     this.clearBasket();
   }

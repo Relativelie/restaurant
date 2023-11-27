@@ -1,4 +1,4 @@
-.about {
+#about {
   height: 40em;
 
   background-image: url('../png/olive.png');
@@ -13,10 +13,4 @@
   align-items: center;
   place-content: center;
   height: 100%;
-}
-
-@media all and (max-width: 1250px) {
-  .about_image-container {
-    width: 35em;
-  }
 }

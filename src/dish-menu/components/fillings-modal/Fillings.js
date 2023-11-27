@@ -10,11 +10,16 @@ class FillingsModal {
   }
 
   render() {
-    this.renderFillings();
-    this.onAddListeners();
+    this._renderFillings();
+
+    const addBtn = this.fillingsModal.querySelector('.fillings__add-btn');
+    addBtn.addEventListener('click', () => {
+      this.addToBasket();
+      this._onCloseFillingsModal();
+    });
   }
 
-  renderFillings() {
+  _renderFillings() {
     const fillingsItems = document.querySelector('.fillings-items');
     fillingsItems.innerHTML = '';
 
@@ -25,16 +30,7 @@ class FillingsModal {
     });
   }
 
-  onAddListeners() {
-    const addToBasketBtn =
-      this.fillingsModal.querySelector('.fillings__add-btn');
-    addToBasketBtn.addEventListener('click', () => {
-      this.addToBasket();
-      this.onCloseFillingsModal();
-    });
-  }
-
-  onCloseFillingsModal() {
+  _onCloseFillingsModal() {
     this.fillingsModal.hide();
     this.onSelectFilling(null);
   }
