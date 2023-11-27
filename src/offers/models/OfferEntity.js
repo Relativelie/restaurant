@@ -1,12 +1,5 @@
 class OfferEntity {
-  constructor({
-    gifImage,
-    href,
-    headerImage,
-    title,
-    titleDescription,
-    description,
-  }) {
+  constructor({ gifImage, href, headerImage, title, titleDescription, description }) {
     this.gifImage = gifImage;
     this.href = href;
     this.headerImage = headerImage;

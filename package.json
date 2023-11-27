@@ -8,11 +8,7 @@
     "build:dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack",
     "build:prod": "webpack --config webpack.config.prod.js",
-    "lint": "npx eslint src test",
-    "lint:fix": "npm run lint -- --fix",
-    "prettier": "npx prettier src test --check",
-    "prettier:fix": "npm run prettier -- --write",
-    "format": "npm run prettier:fix && npm run lint:fix"
+    "lint": "eslint . --fix"
   },
   "author": "Gushat Khabibullina",
   "license": "ISC",
@@ -24,6 +20,7 @@
     "core-js": "^3.33.2",
     "eslint": "^8.53.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
     "webpack": "4.40.2",

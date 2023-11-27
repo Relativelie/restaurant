@@ -23,9 +23,7 @@ class FormModal {
   }
 
   _addTotalCost() {
-    this.#formModal.querySelector(
-      '.order-modal__total-cost p',
-    ).textContent = `$${this.totalCost}`;
+    this.#formModal.querySelector('.order-modal__total-cost p').textContent = `$${this.totalCost}`;
   }
 
   _onClickSendBtn() {

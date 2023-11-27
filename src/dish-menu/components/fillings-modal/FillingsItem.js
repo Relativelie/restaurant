@@ -17,9 +17,8 @@ class FillingsItem extends Component {
     const { name, price, image } = this.filling;
     itemBody.querySelector('p').textContent = name;
     itemBody.querySelector('h4').textContent = `$${price}`;
-    itemBody.querySelector(
-      '.fillings-item',
-    ).style.backgroundImage = `url("../assets/jpg/${image}")`;
+    itemBody.querySelector('.fillings-item').style.backgroundImage =
+      `url("../assets/jpg/${image}")`;
 
     const filling = itemBody.querySelector('.fillings-item_container');
     filling.addEventListener('click', (e) => {
@@ -43,9 +42,7 @@ class FillingsItem extends Component {
   }
 
   selectFilling(fillingsItem) {
-    fillingsItem
-      .querySelector('.fillings-item')
-      .classList.add(this.#selectedClassName);
+    fillingsItem.querySelector('.fillings-item').classList.add(this.#selectedClassName);
     this.onSelectFilling(this.filling);
   }
 

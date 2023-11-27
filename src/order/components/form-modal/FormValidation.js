@@ -19,8 +19,7 @@ class FormValidation {
 
     const phoneInput = inputs[0];
     if (!this._isValidPhone(phoneInput.value)) {
-      !this._hasErrorClass(phoneInput) &&
-        phoneInput.classList.add(this.#errorBorderClass);
+      !this._hasErrorClass(phoneInput) && phoneInput.classList.add(this.#errorBorderClass);
       errorSelector.textContent = this.#phoneErrorMsg;
       return false;
     }

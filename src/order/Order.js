@@ -9,10 +9,7 @@ class Order {
   }
 
   render() {
-    const formModal = new FormModal(
-      this._openSuccessModal.bind(this),
-      this.totalCost,
-    );
+    const formModal = new FormModal(this._openSuccessModal.bind(this), this.totalCost);
     formModal.render();
   }
 

@@ -14,9 +14,8 @@ class DishItem extends Component {
     itemBody.querySelector('h2').textContent = name;
     itemBody.querySelector('p').textContent = description;
     itemBody.querySelector('h3').textContent = `from $${price}`;
-    itemBody.querySelector(
-      '.dish-item__image',
-    ).style.backgroundImage = `url("../assets/jpg/${image}")`;
+    itemBody.querySelector('.dish-item__image').style.backgroundImage =
+      `url("../assets/jpg/${image}")`;
     itemBody.querySelector('.dish-item').dataset.dish = id;
 
     return itemBody;

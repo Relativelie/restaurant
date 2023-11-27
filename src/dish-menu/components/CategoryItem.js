@@ -20,10 +20,7 @@ class CategoryItem extends Component {
     itemBody.querySelector('.category-item').dataset.category = dataAttribute;
 
     const isSelected = this.selectedCategory === dataAttribute;
-    this._addSelectedClass(
-      isSelected,
-      itemBody.querySelector('.category-item'),
-    );
+    this._addSelectedClass(isSelected, itemBody.querySelector('.category-item'));
 
     itemBody
       .querySelector('.category-item')
@@ -40,9 +37,7 @@ class CategoryItem extends Component {
 
   _deselectPrevCategory() {
     const categoriesContainer = document.querySelector('.menu__categories');
-    const selectedCategory = categoriesContainer.querySelector(
-      `.${this.#selectedClassName}`,
-    );
+    const selectedCategory = categoriesContainer.querySelector(`.${this.#selectedClassName}`);
     if (selectedCategory) {
       selectedCategory.classList.remove(this.#selectedClassName);
     }

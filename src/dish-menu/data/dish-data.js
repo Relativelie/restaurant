@@ -119,8 +119,7 @@ export default {
     {
       id: 9,
       name: 'Pasta',
-      description:
-        'Our appetizers should be big on flavor, small on size, and price',
+      description: 'Our appetizers should be big on flavor, small on size, and price',
       price: 2,
       fillings: [
         { id: 17, name: 'bacon', price: 5, image: 'bacon.jpg' },
@@ -194,8 +193,7 @@ export default {
     {
       id: 13,
       name: 'Cocktails',
-      description:
-        'We offer a great variety of the very best cocktails you’ll find',
+      description: 'We offer a great variety of the very best cocktails you’ll find',
       price: 2,
       fillings: [
         { id: 3, name: 'Old Fashioned', price: 2, image: 'oldFashioned.jpg' },
@@ -208,8 +206,7 @@ export default {
     {
       id: 14,
       name: 'Wine',
-      description:
-        'Each wine listed below also includes alternative varieties that taste similar',
+      description: 'Each wine listed below also includes alternative varieties that taste similar',
       price: 18,
       fillings: [
         { id: 3, name: 'Chardonnay', price: 20, image: 'chardonnay.jpg' },

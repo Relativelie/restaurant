@@ -53,19 +53,12 @@ class Basket extends Component {
       if (this.orderingItems.isEmptyCategory(key)) return;
       loadCategoryContainer().then((module) => {
         const CategoryContainer = module.default;
-        const body = new CategoryContainer(
-          key,
-          this.orderingItems[key],
-        ).create();
-        basketContainer
-          .querySelector('.basket__content')
-          .appendChild(body, basketBody.firstChild);
+        const body = new CategoryContainer(key, this.orderingItems[key]).create();
+        basketContainer.querySelector('.basket__content').appendChild(body, basketBody.firstChild);
       });
     });
 
-    const totalCostSelector = basketContainer.querySelectorAll(
-      '.basket__total-cost p',
-    )[1];
+    const totalCostSelector = basketContainer.querySelectorAll('.basket__total-cost p')[1];
     totalCostSelector.textContent = `$${this.totalCost}`;
 
     const orderBtn = document.querySelector('.basket__order-btn');

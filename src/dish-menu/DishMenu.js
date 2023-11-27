@@ -3,8 +3,7 @@ import categoryData from './data/category-data';
 import DishItem from './components/DishItem';
 import CategoryItem from './components/CategoryItem';
 
-const loadFillingsModalComp = () =>
-  import('./components/fillings-modal/Fillings');
+const loadFillingsModalComp = () => import('./components/fillings-modal/Fillings');
 
 class DishMenu {
   constructor(addToBasket) {
@@ -25,11 +24,9 @@ class DishMenu {
     this.dishData[this.selectedCategory].map((dish) => {
       const item = new DishItem(dish, this._selectFilling);
       const itemBody = item.create();
-      itemBody
-        .querySelector('.choose-filling-button')
-        .addEventListener('click', (e) => {
-          this._openFillingsModal(e, dish.fillings);
-        });
+      itemBody.querySelector('.choose-filling-button').addEventListener('click', (e) => {
+        this._openFillingsModal(e, dish.fillings);
+      });
       menuContent.appendChild(itemBody);
     });
   }
@@ -53,13 +50,9 @@ class DishMenu {
     this.selectedDish = this._getSelectedDish(e);
     loadFillingsModalComp().then((module) => {
       const FillingsModal = module.default;
-      const fillings = new FillingsModal(
-        curFillings,
-        this._onAddToBasket.bind(this),
-        (value) => {
-          this._selectFilling(value);
-        },
-      );
+      const fillings = new FillingsModal(curFillings, this._onAddToBasket.bind(this), (value) => {
+        this._selectFilling(value);
+      });
 
       fillings.onOpenFillingsModal();
       fillings.render();
@@ -67,13 +60,8 @@ class DishMenu {
   }
 
   _getSelectedDish(e) {
-    const selectedDishId = parseInt(
-      e.currentTarget.closest('.dish-item').dataset.dish,
-      10,
-    );
-    return this.dishData[this.selectedCategory].find(
-      (dish) => dish.id === selectedDishId,
-    );
+    const selectedDishId = parseInt(e.currentTarget.closest('.dish-item').dataset.dish, 10);
+    return this.dishData[this.selectedCategory].find((dish) => dish.id === selectedDishId);
   }
 
   _onAddToBasket() {
@@ -81,11 +69,7 @@ class DishMenu {
       return;
     }
 
-    this.addToBasket(
-      this.selectedCategory,
-      this.selectedDish,
-      this.selectedFilling,
-    );
+    this.addToBasket(this.selectedCategory, this.selectedDish, this.selectedFilling);
   }
 
   _onClickCategory(e) {

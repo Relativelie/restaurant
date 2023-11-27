@@ -11,23 +11,14 @@ class OfferItem extends Component {
   create() {
     const itemBody = super.getTemplateBody();
 
-    const {
-      gifImage,
-      href,
-      headerImage,
-      title,
-      titleDescription,
-      description,
-    } = this.offer;
+    const { gifImage, href, headerImage, title, titleDescription, description } = this.offer;
 
     const offerItem = itemBody.querySelector('.offer__item');
 
     offerItem.querySelector('a').href = href;
     offerItem.querySelector('img').src = `./assets/png/${gifImage}`;
 
-    const itemBodyContainer = itemBody.querySelector(
-      '.offer__item_desc-container',
-    );
+    const itemBodyContainer = itemBody.querySelector('.offer__item_desc-container');
     itemBodyContainer.querySelector('h2').textContent = title;
     itemBodyContainer.querySelector('h3').textContent = titleDescription;
     itemBodyContainer.querySelector('img').src = `./assets/png/${headerImage}`;
