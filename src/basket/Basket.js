@@ -71,12 +71,12 @@ class Basket extends Component {
 
   _onClickToOrder() {
     this._closeBasketPopup();
-    loadOrderComp().then((module) => {
-      if (this.orderComponent) {
-        this.orderComponent.open(this.totalCost);
-        return;
-      }
+    if (this.orderComponent) {
+      this.orderComponent.open(this.totalCost);
+      return;
+    }
 
+    loadOrderComp().then((module) => {
       const Order = module.default;
       this.orderComponent = new Order(this.totalCost, this._onClearBasket.bind(this));
       this.orderComponent.render();
