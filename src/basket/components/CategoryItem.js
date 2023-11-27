@@ -14,10 +14,17 @@ class CategoryItem extends Component {
     const allTextContent = itemBody.querySelectorAll('p');
     const [nameSelector, priceSelector] = allTextContent;
 
-    nameSelector.textContent = `${dish.name} with ${filling.name}`;
+    nameSelector.textContent = `${dish.name} ${this._isWithoutFilling() ? '' : 'with'} ${
+      filling.name
+    }`;
     priceSelector.textContent = `$${filling.price}`;
 
     return itemBody;
+  }
+
+  _isWithoutFilling() {
+    const { filling } = this.item;
+    return filling.name === 'without filling';
   }
 }
 
