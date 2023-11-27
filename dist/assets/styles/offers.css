@@ -48,6 +48,7 @@
   font-size: 2em;
   color: rgb(207, 141, 79);
   font-family: 'Dancing Script', cursive;
+  font-weight: 500;
 }
 
 .offer__item__desc-text {
@@ -104,6 +105,7 @@
 .offer-item-description h5 {
   margin: 0;
   font-family: 'Nunito', sans-serif;
+  font-weight: 500;
 }
 
 .offer-items {
