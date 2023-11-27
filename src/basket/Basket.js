@@ -16,6 +16,8 @@ class Basket extends Component {
     this.basketPopup = document.querySelector('.basket__popup');
     this.basketButton = document.querySelector('.basket-button');
     this.orderingItems = new BasketEntity();
+
+    this.orderComponent = null;
   }
 
   get isActivePopup() {
@@ -70,13 +72,15 @@ class Basket extends Component {
   _onClickToOrder() {
     this._closeBasketPopup();
     loadOrderComp().then((module) => {
-      const Order = module.default;
-      const order = new Order(this.totalCost, this._onClearBasket.bind(this));
-      order.render();
-    });
+      if (this.orderComponent) {
+        this.orderComponent.open(this.totalCost);
+        return;
+      }
 
-    const orderModal = document.querySelector('.order-modal__form');
-    orderModal.open();
+      const Order = module.default;
+      this.orderComponent = new Order(this.totalCost, this._onClearBasket.bind(this));
+      this.orderComponent.render();
+    });
   }
 
   _openBasketPopup() {

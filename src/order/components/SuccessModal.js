@@ -7,13 +7,15 @@ class SuccessModal {
 
   render() {
     this.#successModal.open();
+
     const successOkBtn = document.querySelector('.order-modal__success-btn');
     successOkBtn.addEventListener('click', this._closeSuccessStep.bind(this));
+
+    this.#successModal.addEventListener('hide', this.clearBasket.bind(this));
   }
 
-  _closeSuccessStep() {
-    this.#successModal.hide();
-    this.clearBasket();
+  _closeSuccessStep(e) {
+    this.#successModal.hide(e);
   }
 }
 

@@ -14,7 +14,7 @@ class FormModal {
     this._addTotalCost();
 
     const phoneInput = document.querySelector('.order-modal__form-phone');
-    phoneInput.addEventListener('keyup', (e) => this._onChangePhone(e.target.value));
+    phoneInput.addEventListener('keyup', this._limitPhoneLength);
 
     const orderBtn = document.querySelector('.order-modal__send-btn');
     orderBtn.addEventListener('click', this._onClickSendBtn.bind(this));
@@ -22,13 +22,19 @@ class FormModal {
     this.#formModal.addEventListener('hide', this._resetForm.bind(this));
   }
 
+  open(totalCost) {
+    this.totalCost = totalCost;
+    this._addTotalCost();
+    this.#formModal.open();
+  }
+
   _addTotalCost() {
     this.#formModal.querySelector('.order-modal__total-cost p').textContent = `$${this.totalCost}`;
   }
 
-  _onClickSendBtn() {
+  _onClickSendBtn(e) {
     if (!this.validation.isValidFormValues()) return;
-    this.#formModal.hide();
+    this.#formModal.hide(e);
     this.openSuccessModal();
   }
 
@@ -40,9 +46,10 @@ class FormModal {
     this.validation.removeAllErrorClasses(inputs);
   }
 
-  _onChangePhone(value) {
-    if (value.length < 10) return;
-    value = value.slice(0, 9);
+  _limitPhoneLength(e) {
+    const val = e.target.value;
+    if (val.length < 10) return;
+    e.target.value = val.slice(0, 9);
   }
 }
 

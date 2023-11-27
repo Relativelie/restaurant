@@ -6,11 +6,16 @@ class Order {
   constructor(totalCost, clearBasket) {
     this.totalCost = totalCost;
     this.clearBasket = clearBasket;
+    this.formModal;
   }
 
   render() {
-    const formModal = new FormModal(this._openSuccessModal.bind(this), this.totalCost);
-    formModal.render();
+    this.formModal = new FormModal(this._openSuccessModal.bind(this), this.totalCost);
+    this.formModal.render();
+  }
+
+  open(totalCost) {
+    this.formModal.open(totalCost);
   }
 
   _openSuccessModal() {
