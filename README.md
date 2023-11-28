@@ -1,6 +1,7 @@
 # GuRepio - restaurant page
 
-**Online demo**: https://relativelie.github.io/restaurant/
+**Online demo**: [https://relativelie.github.io/cafe/](https://relativelie.github.io/restaurant/)
+
 
 In this project, you can choose dishes from the menu, put them in your cart and fill out the order form.
 
