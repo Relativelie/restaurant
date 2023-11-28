@@ -1,5 +1,6 @@
-GuRepio - recipe searcher and analyzer
-Online demo: https://relativelie.github.io/restaurant/
+# GuRepio - restaurant page
+
+**Online demo**: https://relativelie.github.io/restaurant/
 
 In this project, you can choose dishes from the menu, put them in your cart and fill out the order form.
 
