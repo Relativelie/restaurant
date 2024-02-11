@@ -2,12 +2,15 @@
 
 **Online demo**: https://relativelie.github.io/restaurant/
 
-
-In this project, you can choose dishes from the menu, put them in your cart and fill out the order form.
-
 ## Technologies Used
 
 pure JS - webpack4 - OOP - Web components - CSS - eslint - prettier
+
+## Features
+
+* choose dishes from the menu
+* put dishes to cart
+* fill out the order form.
 
 ## Short video review
 
